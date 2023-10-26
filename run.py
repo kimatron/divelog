@@ -34,12 +34,12 @@ def add_dive_log():
 
 
     # Open the dive log database (Google Sheets spreadsheet)
-    spreadsheet = SHEET.worksheet("Dive Log")
-    sheet = spreadsheet.DiveLog
+    spreadsheet = SHEET.worksheet("DiveLog")
+    
 
     # Add the dive log data to the Google Sheets spreadsheet
     new_row = [dive_number, dive_buddy, dive_site, dive_depth, dive_time, starting_air, ending_air]
-    sheet.append_row(new_row)
+    spreadsheet.append_row(new_row)
 
     print("Dive log added successfully!")
 
