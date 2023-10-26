@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from flask import Flask, request
+from datetime import datetime
 
     # Connect to the Google Sheets API and authenticate using the API credentials
 SCOPE = [
@@ -26,36 +26,67 @@ def display_logo():
 display_logo()
 
 
+
 def add_dive_log():
     # Prompt the user to enter dive log information
-    dive_number = input("Enter Dive Number:\n ")
+    dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
     dive_buddy = input("Enter Dive Buddy Name:\n ")
     dive_site = input("Enter Dive Site Name:\n ")
-    dive_depth = input("Enter Dive Depth (in meters):\n ")
-    dive_time = input("Enter Dive Time (in minutes):\n ")
-    starting_air = input("Enter Starting Air (in PSI):\n ")
-    ending_air = input("Enter Ending Air (in PSI):\n ")
+
+    # Validate the dive date format
+    while True:
+        try:
+            dive_date = datetime.strptime(dive_date, "%Y-%m-%d").date()
+            break
+        except ValueError:
+            print("Invalid date format. Please enter the date in YYYY-MM-DD format.")
+            dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
+
+    # Validate input for numeric fields
+    while True:
+        try:
+            dive_depth = int(input("Enter Dive Depth (in meters):\n "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    while True:
+        try:
+            dive_time = int(input("Enter Dive Time (in minutes):\n "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    while True:
+        try:
+            starting_air = int(input("Enter Starting Air (in PSI):\n "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    while True:
+        try:
+            ending_air = int(input("Enter Ending Air (in PSI):\n "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
 
     # Validate the input data (you can customize the validation rules as per your requirements)
-    if not (dive_number and dive_buddy and dive_site and dive_depth and dive_time and starting_air and ending_air):
+    if not (dive_date and dive_buddy and dive_site):
         print("Error: All fields are required.")
         return
 
-
-
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
-    
 
     # Add the dive log data to the Google Sheets spreadsheet
-    new_row = [dive_number, dive_buddy, dive_site, dive_depth, dive_time, starting_air, ending_air]
+    new_row = [str(dive_date), dive_buddy, dive_site, dive_depth, dive_time, starting_air, ending_air]
     spreadsheet.append_row(new_row)
 
     print("Dive log added successfully!")
 
-""" Call the add_dive_log function
+
+
+""" Call the add_dive_log function"""
 add_dive_log()
-"""
+
 def delete_dive_log():
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
@@ -71,7 +102,7 @@ def delete_dive_log():
     # Display the list of dive logs to the user
     print("------- Dive Logs -------")
     for index, log in enumerate(dive_logs, start=1):
-        print(f"{index}. Dive Number: {log['Dive Number']}, Dive Buddy: {log['Dive Buddy Name']}, Dive Site: {log['Dive Site Name']}")
+        print(f"{index}. Dive Date: {log['Dive Date']}, Dive Buddy: {log['Dive Buddy Name']}, Dive Site: {log['Dive Site Name']}")
 
     # Prompt the user to select a dive log to delete
     dive_index = input("Enter the index of the dive log to delete:\n ")
@@ -109,7 +140,7 @@ def view_dive_logs():
     print("------- Dive Logs -------")
     for index, log in enumerate(dive_logs, start=1):
         print(f"Dive {index}:")
-        print(f"Dive Number: {log['Dive Number']}")
+        print(f"Dive Date: {log['Dive Date']}")
         print(f"Dive Buddy: {log['Dive Buddy Name']}")
         print(f"Dive Site: {log['Dive Site Name']}")
         print(f"Dive Depth: {log['Dive Depth']}")
@@ -151,7 +182,7 @@ def search_dive_logs():
     print("------- Matching Dive Logs -------")
     for index, log in enumerate(matching_logs, start=1):
         print(f"Dive {index}:")
-        print(f"Dive Number: {log['Dive Number']}")
+        print(f"Dive Date: {log['Dive Date']}")
         print(f"Dive Buddy: {log['Dive Buddy Name']}")
         print(f"Dive Site: {log['Dive Site Name']}")
         print(f"Dive Depth: {log['Dive Depth']}")
@@ -199,7 +230,7 @@ while running:
         export_dive_logs()
     elif option == "0":
         print("See you after the next dive!")
-        running = False
+        exit()
     else:
         print("Invalid option. Please try again.")
 
