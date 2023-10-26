@@ -28,13 +28,13 @@ def display_logo():
 
 def add_dive_log():
     # Prompt the user to enter dive log information
-    dive_number = input("Enter Dive Number: ")
-    dive_buddy = input("Enter Dive Buddy Name: ")
-    dive_site = input("Enter Dive Site Name: ")
-    dive_depth = input("Enter Dive Depth: ")
-    dive_time = input("Enter Dive Time: ")
-    starting_air = input("Enter Starting Air: ")
-    ending_air = input("Enter Ending Air: ")
+    dive_number = input("Enter Dive Number:\n ")
+    dive_buddy = input("Enter Dive Buddy Name:\n ")
+    dive_site = input("Enter Dive Site Name:\n ")
+    dive_depth = input("Enter Dive Depth:\n ")
+    dive_time = input("Enter Dive Time:\n ")
+    starting_air = input("Enter Starting Air:\n ")
+    ending_air = input("Enter Ending Air:\n ")
 
     # Validate the input data (you can customize the validation rules as per your requirements)
     if not (dive_number and dive_buddy and dive_site and dive_depth and dive_time and starting_air and ending_air):
@@ -74,7 +74,7 @@ def delete_dive_log():
         print(f"{index}. Dive Number: {log['Dive Number']}, Dive Buddy: {log['Dive Buddy Name']}, Dive Site: {log['Dive Site Name']}")
 
     # Prompt the user to select a dive log to delete
-    dive_index = input("Enter the index of the dive log to delete: ")
+    dive_index = input("Enter the index of the dive log to delete:\n ")
 
     try:
         # Convert the input to an integer and ensure it's a valid index
@@ -124,7 +124,7 @@ view_dive_logs()
 
 def search_dive_logs():
     # Get the search query from the user
-    search_query = input("Enter a search query: ")
+    search_query = input("Enter a search query:\n ")
 
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
@@ -174,10 +174,13 @@ def display_main_menu():
     print("0. Exit")
     print("========================")
 
-while True:
+# Set the flag variable to True to enter the main menu loop
+running = True
+
+while running:
     display_main_menu()
 
-    option = input("Enter an option: ")
+    option = input("Enter an option:\n ")
 
     if option == "1":
         # Call the view_dive_logs function
@@ -195,12 +198,13 @@ while True:
         # Call the export_dive_logs function
         export_dive_logs()
     elif option == "0":
-        print("See you after your next dive!")
-        break
+        print("See you after the next dive!")
+        running = False
     else:
         print("Invalid option. Please try again.")
 
-    input("Press Enter to go back to the Main Menu.")
+    if running:
+        input("Press Enter to go back to the Main Menu.\n")
     
 display_logo()
 
