@@ -240,7 +240,8 @@ def display_main_menu():
     print("2. Add Dive Log")
     print("3. Delete Dive Log")
     print("4. Search Dive Logs")
-    print("5. Export Dive Logs")
+    print("5. Instructions")
+    print("6. About")
     print("0. Exit")
     print("========================")
 
@@ -268,8 +269,11 @@ while running:
         # Call the search_dive_logs function
         search_dive_logs()
     elif option == "5":
-        # Call the export_dive_logs function
-        export_dive_logs()
+        # Call the display_instructions function
+        display_instructions()
+    elif option == "6":
+        # Call the display_about function
+        display_about()
     elif option == "0":
         print("See you after the next dive!")
         exit()
