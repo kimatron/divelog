@@ -99,43 +99,53 @@ def delete_dive_log():
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
 
-    # Get all dive logs from the spreadsheet
-    dive_logs = spreadsheet.get_all_records()
+    while True:
+        # Get all dive logs from the spreadsheet
+        dive_logs = spreadsheet.get_all_records()
 
-    # Check if there are dive logs to delete
-    if not dive_logs:
-        print("No dive logs found to delete.")
-        return
-
-    # Display the list of dive logs to the user
-    print("------- Dive Logs -------")
-    for index, log in enumerate(dive_logs, start=1):
-        print(f"{index}. Dive Date: {log['Dive Date']}, Dive Buddy: {log['Dive Buddy Name']}, Dive Site: {log['Dive Site Name']}")
-
-    # Prompt the user to select a dive log to delete
-    dive_index = input("Enter the index of the dive log to delete:\n ")
-
-    try:
-        # Convert the input to an integer and ensure it's a valid index
-        dive_index = int(dive_index)
-        if dive_index < 1 or dive_index > len(dive_logs):
-            print("Invalid dive log index.")
+        # Check if there are dive logs to delete
+        if not dive_logs:
+            print("No dive logs found to delete.")
             return
 
-        # Prompt the user for confirmation
-        confirmation = input("Are you sure you want to delete this dive log? (y/n)\n ")
+        # Display the list of dive logs to the user
+        print("------- Dive Logs -------")
+        for index, log in enumerate(dive_logs, start=1):
+            print(f"{index}. Dive Date: {log['Dive Date']}, Dive Buddy: {log['Dive Buddy Name']}, Dive Site: {log['Dive Site Name']}")
 
-        if confirmation.lower() != 'y':
-            print("Dive log deletion canceled.")
+        # Prompt the user to select a dive log to delete
+        dive_index = input("Enter the index of the dive log to delete (or 'q' to quit):\n ")
+
+        if dive_index == 'q':
             return
 
-        # Delete the selected dive log
-        # Add 1 to account for the header row
-        spreadsheet.delete_rows(dive_index + 1)
+        try:
+            # Convert the input to an integer and ensure it's a valid index
+            dive_index = int(dive_index)
+            if dive_index < 1 or dive_index > len(dive_logs):
+                print("Invalid dive log index.")
+                continue
 
-        print("Dive log deleted successfully!")
-    except ValueError:
-        print("Invalid input. Please enter a number.")
+            # Prompt the user for confirmation
+            confirmation = input("Are you sure you want to delete this dive log? (y/n)\n ")
+
+            if confirmation.lower() != 'y':
+                print("Dive log deletion canceled.")
+                continue
+
+            # Delete the selected dive log
+            # Add 1 to account for the header row
+            spreadsheet.delete_rows(dive_index + 1)
+
+            print("Dive log deleted successfully!")
+
+            # Prompt the user to delete another dive log
+            delete_another = input("Do you want to delete another dive log? (y/n)\n ")
+            if delete_another.lower() != 'y':
+                return
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
 
 
 """ Call the delete_dive_log function
