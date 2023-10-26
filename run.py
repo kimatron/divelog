@@ -84,9 +84,9 @@ def add_dive_log():
 
 
 
-""" Call the add_dive_log function"""
+""" Call the add_dive_log function
 add_dive_log()
-
+"""
 def delete_dive_log():
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
