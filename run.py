@@ -1,9 +1,8 @@
-import json
 import gspread
 from google.oauth2.service_account import Credentials
 from flask import Flask, request
 
-
+    # Connect to the Google Sheets API and authenticate using the API credentials
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -32,14 +31,11 @@ def add_dive_log():
         print("Error: All fields are required.")
         return
 
-    # Connect to the Google Sheets API and authenticate using the API credentials
-    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
-    client = gspread.authorize(credentials)
+
 
     # Open the dive log database (Google Sheets spreadsheet)
-    spreadsheet = client.open("Dive Log Database")
-    sheet = spreadsheet.sheet1
+    spreadsheet = SHEET.worksheet("Dive Log")
+    sheet = spreadsheet.DiveLog
 
     # Add the dive log data to the Google Sheets spreadsheet
     new_row = [dive_number, dive_buddy, dive_site, dive_depth, dive_time, starting_air, ending_air]
