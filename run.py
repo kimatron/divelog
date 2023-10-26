@@ -43,5 +43,42 @@ def add_dive_log():
 
     print("Dive log added successfully!")
 
-# Call the add_dive_log function
+""" Call the add_dive_log function
 add_dive_log()
+"""
+def delete_dive_log():
+    # Open the dive log database (Google Sheets spreadsheet)
+    spreadsheet = SHEET.worksheet("DiveLog")
+
+    # Get all dive logs from the spreadsheet
+    dive_logs = spreadsheet.get_all_records()
+
+    # Check if there are dive logs to delete
+    if not dive_logs:
+        print("No dive logs found to delete.")
+        return
+
+    # Display the list of dive logs to the user
+    print("------- Dive Logs -------")
+    for index, log in enumerate(dive_logs, start=1):
+        print(f"{index}. Dive Number: {log['Dive Number']}, Dive Buddy: {log['Dive Buddy Name']}, Dive Site: {log['Dive Site Name']}")
+
+    # Prompt the user to select a dive log to delete
+    dive_index = input("Enter the index of the dive log to delete: ")
+
+    try:
+        # Convert the input to an integer and ensure it's a valid index
+        dive_index = int(dive_index)
+        if dive_index < 1 or dive_index > len(dive_logs):
+            print("Invalid dive log index.")
+            return
+
+        # Delete the selected dive log
+        spreadsheet.delete_rows(dive_index + 1)  # Add 1 to account for the header row
+
+        print("Dive log deleted successfully!")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+# Call the delete_dive_log function
+delete_dive_log()
