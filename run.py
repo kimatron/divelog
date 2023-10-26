@@ -241,6 +241,46 @@ def display_about():
     Developed by [Kim Hanlon]
     Version: 1.0
     """)
+    
+def display_instructions():
+    print("""
+======= Instructions =======
+
+1. View Dive Logs:
+   - This option allows you to view all the existing dive logs in numerical order.
+
+2. Add Dive Log:
+   - Use this option to add a new dive log to the database.
+   - You will be prompted to enter information such as the dive date,
+   dive buddy name, and dive site name.
+   Dive time is to be entered in minutes and requires an integer input;
+   Dive depth is to be entered in meters and requires an integer input;
+   Starting and Ending air is to be entered in PSI
+   and requires an integer input.
+   
+
+3. Delete Dive Log:
+   - Select this option to delete a dive log from the database.
+   - You will be prompted to select the dive log to delete from a list.
+   - Confirmation is required before log deletion is completed.
+
+4. Search Dive Logs:
+   - This option enables you to search dive logs 
+   based on certain criteria: dive date, dive buddy name, or dive site name.
+
+5. Instructions:
+   - This option displays these instructions for using the dive log program.
+
+6. About:
+   - This option provides information about the dive log program and the developer.
+
+0. Exit:
+   - Select this option to exit the dive log program.
+
+===========================
+""")
+
+
 
 def clean_up_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
