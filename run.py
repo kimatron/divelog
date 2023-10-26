@@ -31,10 +31,10 @@ def add_dive_log():
     dive_number = input("Enter Dive Number:\n ")
     dive_buddy = input("Enter Dive Buddy Name:\n ")
     dive_site = input("Enter Dive Site Name:\n ")
-    dive_depth = input("Enter Dive Depth:\n ")
-    dive_time = input("Enter Dive Time:\n ")
-    starting_air = input("Enter Starting Air:\n ")
-    ending_air = input("Enter Ending Air:\n ")
+    dive_depth = input("Enter Dive Depth (in meters):\n ")
+    dive_time = input("Enter Dive Time (in minutes):\n ")
+    starting_air = input("Enter Starting Air (in PSI):\n ")
+    ending_air = input("Enter Ending Air (in PSI):\n ")
 
     # Validate the input data (you can customize the validation rules as per your requirements)
     if not (dive_number and dive_buddy and dive_site and dive_depth and dive_time and starting_air and ending_air):
