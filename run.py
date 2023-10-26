@@ -22,7 +22,43 @@ def display_logo():
 ░▀▀▀░▀▀▀░▀▀▀░▀▀░░▀░▀░░░▀▀░░▀▀▀░░▀░░▀▀▀░░░▀▀▀░▀▀▀░▀▀▀
     """)
 
+def display_main_menu():
+    print("======= Main Menu =======")
+    print("1. View Dive Logs")
+    print("2. Add Dive Log")
+    print("3. Delete Dive Log")
+    print("4. Search Dive Logs")
+    print("5. Export Dive Logs")
+    print("0. Exit")
+    print("========================")
 
+while True:
+    display_main_menu()
+
+    option = input("Enter an option: ")
+
+    if option == "1":
+        # Call the view_dive_logs function
+        view_dive_logs()
+    elif option == "2":
+        # Call the add_dive_log function
+        add_dive_log()
+    elif option == "3":
+        # Call the delete_dive_log function
+        delete_dive_log()
+    elif option == "4":
+        # Call the search_dive_logs function
+        search_dive_logs()
+    elif option == "5":
+        # Call the export_dive_logs function
+        export_dive_logs()
+    elif option == "0":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid option. Please try again.")
+
+    input("Press Enter to go back to the Main Menu.")
 
 
 def add_dive_log():
