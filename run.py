@@ -229,6 +229,18 @@ def search_dive_logs():
 search_dive_logs()
 """
 
+def display_about():
+    print("""
+    === About ===
+    This program is a dive log application that
+    allows users to record and manage their scuba dive logs.
+    It provides features such as adding new dive logs,
+    deleting existing dive logs, searching dive logs,
+    and viewing all previous dive logs.
+
+    Developed by [Kim Hanlon]
+    Version: 1.0
+    """)
 
 def clean_up_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
