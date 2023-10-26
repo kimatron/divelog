@@ -80,5 +80,33 @@ def delete_dive_log():
     except ValueError:
         print("Invalid input. Please enter a number.")
 
-# Call the delete_dive_log function
+""" Call the delete_dive_log function
 delete_dive_log()
+"""
+def view_dive_logs():
+    # Open the dive log database (Google Sheets spreadsheet)
+    spreadsheet = SHEET.worksheet("DiveLog")
+
+    # Get all dive logs from the spreadsheet
+    dive_logs = spreadsheet.get_all_records()
+
+    # Check if there are dive logs to view
+    if not dive_logs:
+        print("No dive logs found.")
+        return
+
+    # Display the dive logs to the user
+    print("------- Dive Logs -------")
+    for index, log in enumerate(dive_logs, start=1):
+        print(f"Dive {index}:")
+        print(f"Dive Number: {log['Dive Number']}")
+        print(f"Dive Buddy: {log['Dive Buddy Name']}")
+        print(f"Dive Site: {log['Dive Site Name']}")
+        print(f"Dive Depth: {log['Dive Depth']}")
+        print(f"Dive Time: {log['Dive Time']}")
+        print(f"Starting Air: {log['Starting Air']}")
+        print(f"Ending Air: {log['Ending Air']}")
+        print("------------------------")
+
+# Call the view_dive_logs function
+view_dive_logs()
