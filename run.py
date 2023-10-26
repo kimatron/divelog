@@ -23,7 +23,7 @@ def display_logo():
     """)
 
 
-
+display_logo()
 
 
 def add_dive_log():
@@ -118,9 +118,9 @@ def view_dive_logs():
         print(f"Ending Air: {log['Ending Air']}")
         print("------------------------")
 
-# Call the view_dive_logs function
+""" Call the view_dive_logs function
 view_dive_logs()
-
+"""
 
 def search_dive_logs():
     # Get the search query from the user
@@ -160,9 +160,9 @@ def search_dive_logs():
         print(f"Ending Air: {log['Ending Air']}")
         print("------------------------")
 
-# Call the search_dive_logs function
+""" Call the search_dive_logs function
 search_dive_logs()
-
+"""
 
 def display_main_menu():
     print("======= Main Menu =======")
