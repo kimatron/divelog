@@ -90,11 +90,6 @@ def add_dive_log():
     print("Dive log added successfully!")
 
 
-""" Call the add_dive_log function
-add_dive_log()
-"""
-
-
 def delete_dive_log():
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
@@ -111,10 +106,14 @@ def delete_dive_log():
         # Display the list of dive logs to the user
         print("------- Dive Logs -------")
         for index, log in enumerate(dive_logs, start=1):
-            print(f"{index}. Dive Date: {log['Dive Date']}, Dive Buddy: {log['Dive Buddy Name']}, Dive Site: {log['Dive Site Name']}")
+            print(f"{index}."
+                  " Dive Date: {log['Dive Date']}, "
+                  " Dive Buddy: {log['Dive Buddy Name']},"
+                  " Dive Site: {log['Dive Site Name']}")
 
         # Prompt the user to select a dive log to delete
-        dive_index = input("Enter the index of the dive log to delete (or 'q' to quit):\n ")
+        dive_index = input("Enter the index of the dive log to delete "
+                           " (or 'q' to quit):\n ")
 
         if dive_index == 'q':
             return
@@ -127,7 +126,8 @@ def delete_dive_log():
                 continue
 
             # Prompt the user for confirmation
-            confirmation = input("Are you sure you want to delete this dive log? (y/n)\n ")
+            confirmation = input("Are you sure you want to "
+                                 " delete this dive log? (y/n)\n ")
 
             if confirmation.lower() != 'y':
                 print("Dive log deletion canceled.")
@@ -140,17 +140,12 @@ def delete_dive_log():
             print("Dive log deleted successfully!")
 
             # Prompt the user to delete another dive log
-            delete_another = input("Do you want to delete another dive log? (y/n)\n ")
+            delete_another = input("Do you want to delete "
+                                   " another dive log? (y/n)\n ")
             if delete_another.lower() != 'y':
                 return
         except ValueError:
             print("Invalid input. Please enter a number.")
-
-
-
-""" Call the delete_dive_log function
-delete_dive_log()
-"""
 
 
 def view_dive_logs():
@@ -177,11 +172,6 @@ def view_dive_logs():
         print(f"Starting Air: {log['Starting Air']}")
         print(f"Ending Air: {log['Ending Air']}")
         print("------------------------")
-
-
-""" Call the view_dive_logs function
-view_dive_logs()
-"""
 
 
 def search_dive_logs():
@@ -225,10 +215,6 @@ def search_dive_logs():
         print("------------------------")
 
 
-""" Call the search_dive_logs function
-search_dive_logs()
-"""
-
 def display_about():
     print("""
     === About ===
@@ -241,13 +227,15 @@ def display_about():
     Developed by [Kim Hanlon]
     Version: 1.0
     """)
-    
+
+
 def display_instructions():
     print("""
 ======= Instructions =======
 
 1. View Dive Logs:
-   - This option allows you to view all the existing dive logs in numerical order.
+   - This option allows you to view all the existing dive logs
+   in numerical order.
 
 2. Add Dive Log:
    - Use this option to add a new dive log to the database.
@@ -257,7 +245,7 @@ def display_instructions():
    Dive depth is to be entered in meters and requires an integer input;
    Starting and Ending air is to be entered in PSI
    and requires an integer input.
-   
+
 
 3. Delete Dive Log:
    - Select this option to delete a dive log from the database.
@@ -265,21 +253,21 @@ def display_instructions():
    - Confirmation is required before log deletion is completed.
 
 4. Search Dive Logs:
-   - This option enables you to search dive logs 
+   - This option enables you to search dive logs
    based on certain criteria: dive date, dive buddy name, or dive site name.
 
 5. Instructions:
    - This option displays these instructions for using the dive log program.
 
 6. About:
-   - This option provides information about the dive log program and the developer.
+   - This option provides information about the dive log program
+   and the developer.
 
 0. Exit:
    - Select this option to exit the dive log program.
 
 ===========================
 """)
-
 
 
 def clean_up_terminal():
