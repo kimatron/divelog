@@ -121,6 +121,49 @@ def view_dive_logs():
 # Call the view_dive_logs function
 view_dive_logs()
 
+
+def search_dive_logs():
+    # Get the search query from the user
+    search_query = input("Enter a search query: ")
+
+    # Open the dive log database (Google Sheets spreadsheet)
+    spreadsheet = SHEET.worksheet("DiveLog")
+
+    # Create a list to store the matching dive logs
+    matching_logs = []
+
+    # Get all dive logs from the spreadsheet
+    dive_logs = spreadsheet.get_all_records()
+
+    # Iterate over each dive log
+    for log in dive_logs:
+        # Check if any field in the log contains the search query
+        if search_query.lower() in [str(value).lower() for value in log.values()]:
+            # Add the matching log to the list
+            matching_logs.append(log)
+
+    # Check if there are matching dive logs
+    if not matching_logs:
+        print("No matching dive logs found.")
+        return
+
+    # Display the matching dive logs to the user
+    print("------- Matching Dive Logs -------")
+    for index, log in enumerate(matching_logs, start=1):
+        print(f"Dive {index}:")
+        print(f"Dive Number: {log['Dive Number']}")
+        print(f"Dive Buddy: {log['Dive Buddy Name']}")
+        print(f"Dive Site: {log['Dive Site Name']}")
+        print(f"Dive Depth: {log['Dive Depth']}")
+        print(f"Dive Time: {log['Dive Time']}")
+        print(f"Starting Air: {log['Starting Air']}")
+        print(f"Ending Air: {log['Ending Air']}")
+        print("------------------------")
+
+# Call the search_dive_logs function
+search_dive_logs()
+
+
 def display_main_menu():
     print("======= Main Menu =======")
     print("1. View Dive Logs")
