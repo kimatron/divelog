@@ -2,7 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
 
-    # Connect to the Google Sheets API and authenticate using the API credentials
+# Connect to the Google Sheets API and authenticate using the API credentials
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -24,7 +24,6 @@ def display_logo():
 
 
 display_logo()
-
 
 
 def add_dive_log():
@@ -68,7 +67,7 @@ def add_dive_log():
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
-    # Validate the input data (you can customize the validation rules as per your requirements)
+    # Validate the input data
     if not (dive_date and dive_buddy and dive_site):
         print("Error: All fields are required.")
         return
@@ -83,10 +82,11 @@ def add_dive_log():
     print("Dive log added successfully!")
 
 
-
 """ Call the add_dive_log function
 add_dive_log()
 """
+
+
 def delete_dive_log():
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
@@ -121,9 +121,12 @@ def delete_dive_log():
     except ValueError:
         print("Invalid input. Please enter a number.")
 
+
 """ Call the delete_dive_log function
 delete_dive_log()
 """
+
+
 def view_dive_logs():
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
@@ -149,9 +152,11 @@ def view_dive_logs():
         print(f"Ending Air: {log['Ending Air']}")
         print("------------------------")
 
+
 """ Call the view_dive_logs function
 view_dive_logs()
 """
+
 
 def search_dive_logs():
     # Get the search query from the user
@@ -191,9 +196,11 @@ def search_dive_logs():
         print(f"Ending Air: {log['Ending Air']}")
         print("------------------------")
 
+
 """ Call the search_dive_logs function
 search_dive_logs()
 """
+
 
 def display_main_menu():
     print("======= Main Menu =======")
@@ -206,6 +213,8 @@ def display_main_menu():
     print("========================")
 
 # Set the flag variable to True to enter the main menu loop
+
+
 running = True
 
 while running:
@@ -236,7 +245,7 @@ while running:
 
     if running:
         input("Press Enter to go back to the Main Menu.\n")
-    
+
 display_logo()
 
 while True:
