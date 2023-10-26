@@ -38,7 +38,8 @@ def add_dive_log():
             dive_date = datetime.strptime(dive_date, "%Y-%m-%d").date()
             break
         except ValueError:
-            print("Invalid date format. Please enter the date in YYYY-MM-DD format.")
+            print("Invalid date format. \
+            Please enter the date in YYYY-MM-DD format.")
             dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
 
     # Validate input for numeric fields
@@ -76,7 +77,13 @@ def add_dive_log():
     spreadsheet = SHEET.worksheet("DiveLog")
 
     # Add the dive log data to the Google Sheets spreadsheet
-    new_row = [str(dive_date), dive_buddy, dive_site, dive_depth, dive_time, starting_air, ending_air]
+    new_row = [str(dive_date),
+               dive_buddy,
+               dive_site,
+               dive_depth,
+               dive_time,
+               starting_air,
+               ending_air]
     spreadsheet.append_row(new_row)
 
     print("Dive log added successfully!")
@@ -115,7 +122,8 @@ def delete_dive_log():
             return
 
         # Delete the selected dive log
-        spreadsheet.delete_rows(dive_index + 1)  # Add 1 to account for the header row
+        # Add 1 to account for the header row
+        spreadsheet.delete_rows(dive_index + 1)
 
         print("Dive log deleted successfully!")
     except ValueError:
@@ -160,7 +168,8 @@ view_dive_logs()
 
 def search_dive_logs():
     # Get the search query from the user
-    search_query = input("Enter a search query:\n ")
+    search_query = input("Enter a specific search query \
+    (Dive Site Name, Dive Buddy, Dive Date...):\n ")
 
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
@@ -174,7 +183,8 @@ def search_dive_logs():
     # Iterate over each dive log
     for log in dive_logs:
         # Check if any field in the log contains the search query
-        if search_query.lower() in [str(value).lower() for value in log.values()]:
+        if search_query.lower() in [str(value).lower()
+                                    for value in log.values()]:
             # Add the matching log to the list
             matching_logs.append(log)
 
