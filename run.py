@@ -122,6 +122,13 @@ def delete_dive_log():
             print("Invalid dive log index.")
             return
 
+        # Prompt the user for confirmation
+        confirmation = input("Are you sure you want to delete this dive log? (y/n)\n ")
+
+        if confirmation.lower() != 'y':
+            print("Dive log deletion canceled.")
+            return
+
         # Delete the selected dive log
         # Add 1 to account for the header row
         spreadsheet.delete_rows(dive_index + 1)
@@ -267,4 +274,3 @@ display_logo()
 
 while True:
     display_main_menu()
-    
