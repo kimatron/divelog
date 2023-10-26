@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
+import os
 
 # Connect to the Google Sheets API and authenticate using the API credentials
 SCOPE = [
@@ -212,6 +213,10 @@ search_dive_logs()
 """
 
 
+def clean_up_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 def display_main_menu():
     print("======= Main Menu =======")
     print("1. View Dive Logs")
@@ -228,6 +233,7 @@ def display_main_menu():
 running = True
 
 while running:
+    clean_up_terminal()
     display_main_menu()
 
     option = input("Enter an option:\n ")
@@ -255,8 +261,10 @@ while running:
 
     if running:
         input("Press Enter to go back to the Main Menu.\n")
+        clean_up_terminal()
 
 display_logo()
 
 while True:
     display_main_menu()
+    
