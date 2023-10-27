@@ -1,8 +1,8 @@
 # Scuba Dive Log
 
-![Responsive Mockup](documentation/responsive_mockup.png)
+![Responsive Mockup](documentation/scubadivelogscreen.png)
 
-*The link to [the Maddest Madlib](https://dive-log-9f66ea37cc55.herokuapp.com/)*
+*The link to [Scuba Dive Log](https://dive-log-9f66ea37cc55.herokuapp.com/)*
 
 Scuba Dive Log is a Python terminal project whose primary purpose is to log users scuba dive information so that they can keep track of all their dives. It will store useful information that divers like to keep track of, such as:
 * Dive Date
@@ -119,7 +119,7 @@ Scuba Dive Log is a Python terminal project whose primary purpose is to log user
 ## Flowchart
 
 The flowchart represents the logic of the application:
-
+![FlowChart](documentation/firstflowchart.png)
   ![FlowChart](documentation/flowchart_divelog.png)
 
 
