@@ -176,8 +176,8 @@ def view_dive_logs():
 
 def search_dive_logs():
     # Get the search query from the user
-    search_query = input("Enter a specific search query \
-    (Dive Site Name, Dive Buddy, Dive Date...):\n ")
+    search_query = input("Enter a specific search query "
+                         "(Dive Site Name, Dive Buddy, Dive Date...):\n ")
 
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
@@ -275,6 +275,7 @@ def clean_up_terminal():
 
 
 def display_main_menu():
+    display_logo()
     print("======= Main Menu =======")
     print("1. View Dive Logs")
     print("2. Add Dive Log")
