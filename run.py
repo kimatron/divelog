@@ -217,7 +217,7 @@ def search_dive_logs():
 
 
 def display_about():
-    print(Fore.BLUE +"""
+    print(Fore.CYAN +"""
     === About ===
     This program is a dive log application that
     allows users to record and manage their scuba dive logs.
@@ -231,7 +231,7 @@ def display_about():
 
 
 def display_instructions():
-    print(Fore.YELLOW +"""
+    print(Fore.CYAN +"""
 ======= Instructions =======
 
 1. View Dive Logs:
@@ -317,7 +317,7 @@ while running:
         # Call the display_about function
         display_about()
     elif option == "0":
-        print("See you after the next dive!")
+        print(f"{Fore.BLUE}See you after the next dive!")
         print(f"""          )    O
                (   o . O
                 )   () .
@@ -336,6 +336,7 @@ _/ -(-<    _)__|__(_    \\_)-<~
 `-.__)__\\_.----'`-.______.-'  `-.__
                                        kim
 """)
+        print(Style.RESET_ALL)
         exit()
     else:
         print("Invalid option. Please try again.")
