@@ -1,6 +1,6 @@
 # Scuba Dive Log
 
-![Responsive Mockup](documentation/scubadiveloggrab11.png)
+![Scuba Dive Log](Documentation/scubadiveloggrab11.png)
 
 *The link to [Scuba Dive Log](https://dive-log-9f66ea37cc55.herokuapp.com/)*
 
