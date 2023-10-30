@@ -276,15 +276,15 @@ def clean_up_terminal():
 
 def display_main_menu():
     display_logo()
-    print("======= Main Menu =======")
-    print("1. View Dive Logs")
-    print("2. Add Dive Log")
-    print("3. Delete Dive Log")
-    print("4. Search Dive Logs")
-    print("5. Instructions")
-    print("6. About")
-    print("0. Exit")
-    print("========================")
+    print("""======= Main Menu =======
+1. View Dive Logs
+2. Add Dive Log
+3. Delete Dive Log
+4. Search Dive Logs
+5. Instructions
+6. About
+0. Exit
+========================""")
 
 # Set the flag variable to True to enter the main menu loop
 
