@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
+import copy
 import os
 from colorama import init, Fore, Style
 
@@ -95,10 +96,10 @@ def delete_dive_log():
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
 
-    while True:
-        # Get all dive logs from the spreadsheet
-        dive_logs = spreadsheet.get_all_records()
+    # Get all dive logs from the spreadsheet
+    dive_logs = spreadsheet.get_all_records()
 
+    while True:
         # Check if there are dive logs to delete
         if not dive_logs:
             print("No dive logs found to delete.")
@@ -108,9 +109,9 @@ def delete_dive_log():
         print("------- Dive Logs -------")
         for index, log in enumerate(dive_logs, start=1):
             print(f"{index}."
-                  " Dive Date: {log['Dive Date']}, "
-                  " Dive Buddy: {log['Dive Buddy Name']},"
-                  " Dive Site: {log['Dive Site Name']}")
+                  f" Dive Date: {log['Dive Date']}, "
+                  f" Dive Buddy: {log['Dive Buddy Name']},"
+                  f" Dive Site: {log['Dive Site Name']}")
 
         # Prompt the user to select a dive log to delete
         dive_index = input("Enter the index of the dive log to delete "
@@ -139,6 +140,9 @@ def delete_dive_log():
             spreadsheet.delete_rows(dive_index + 1)
 
             print("Dive log deleted successfully!")
+            
+            # Update the dive_logs list after deleting a log
+            dive_logs = copy.copy(spreadsheet.get_all_records())
 
             # Prompt the user to delete another dive log
             delete_another = input("Do you want to delete "
