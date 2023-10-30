@@ -1,6 +1,6 @@
 # Scuba Dive Log
 
-![Responsive Mockup](documentation/scubadivelogscreen.png)
+![Responsive Mockup](documentation/scubadiveloggrab11.png)
 
 *The link to [Scuba Dive Log](https://dive-log-9f66ea37cc55.herokuapp.com/)*
 
@@ -243,6 +243,15 @@ The flowchart represents the logic of the application:
 Please refer to the [TESTING.md](TESTING.md) file for all test related documentation.
 
 ---
+## Validation 
+
+### PEP8
+
+[PEP8CI](https://pep8ci.herokuapp.com/) app was used to lint the code.
+It was helpful to edit with then copy the fixed code back into VS Code.
+After a ropey start with many errors that gave me a fright initially, I got it down to no errors without too much hardship.
+
+![pep8_validation](documentation/linterpass.png)
 ## Deployment
 
 - The program was deployed to [Heroku](https://dashboard.heroku.com).
@@ -290,13 +299,12 @@ Create a local copy of the GitHub repository by following one of the two process
 
       
 
-**The app was initially deployed to Heroku then moved to Render since Heroku has removed its free tier services from November 29 2022**
 
 ### To deploy the project to Heroku so it can be run as a remote web application:
 - Clone the repository:
   1. Open a folder on your computer with the terminal.
   1. Run the following command
-  - `git clone https://github.com/IuliiaKonovalova/madlib_with_python.git`
+  - `git clone https://github.com/kimatron/divelog.git`
 
   1. Create your own GitHub repository to host the code.
   1. Run the command `git remote set-url origin <Your GitHub Repo Path>` to set the remote repository location to your repository.
@@ -353,72 +361,6 @@ Create a local copy of the GitHub repository by following one of the two process
   1. Click "Open app" to launch the application inside a web page.
 
       - ![View Button](documentation/deployment/view_app.png)
-
-
-### To deploy the project to Render so it can be run as a remote web application:
-
-Link to the deployed application on Render: [The Maddest Madlib](https://the-maddest-madlib.onrender.com)
-
-1. Create a new Render account if you don't already have one here [Render](https://render.com/).
-
-2. Create a new application on the following page here [New Render App](https://dashboard.render.com/), choose **Webserver**:
-
-    - ![New Render App](documentation/deployment/render_new_web_service.png)
-
-3. Select the GitHub option and connect the application to the repository you created.
-
-    - ![GitHub Option](documentation/deployment/render_configure_github_account.png)
-
-4. Search for the repository you created and click "Connect."
-
-    - ![Connect to GitHub](documentation/deployment/render_connect_repository.png)
-
-    - ![Connect to GitHub](documentation/deployment/render_connect_repository_connect.png)
-
-5. Create name for the application
-
-    - ![Create Application Name](documentation/deployment/render_create_name.png)
-
-6. Select the region where you want to deploy the application.
-
-    - ![Select Region](documentation/deployment/render_select_region.png)
-
-7. Select branch to deploy.
-
-    - ![Select Branch](documentation/deployment/render_select_branch.png)
-
-8. Select environment.
-
-    - ![Select Environment Variables](documentation/deployment/render_select_environment.png)
-
-9. Render build command: `pip3 install -r requirements.txt && npm install`
-
-    - ![Render Build Command](documentation/deployment/render_build_command.png)
-
-10. Render start command: `node index.js`
-
-    - ![Render Start Command](documentation/deployment/render_start_command.png)
-
-11. Select Free plan.
-
-    - ![Select Free Plan](documentation/deployment/render_payment_info.png)
-
-12. Click on "Advanced" settings.
-
-    - ![Advanced Settings](documentation/deployment/render_advanced_settings.png)
-
-13. Add the following environment variables:
-
-    - Key: PORT Value: 8000
-    - Key: PYTHON_VERSION Value: 3.10.7
-
-    - ![Add Environment Variables](documentation/deployment/render_advanced_settings_variables.png)
-
-14. Click "Create Web Service."
-
-    - ![Save Web Service](documentation/deployment/render_create_web_service.png)
-
-15. Wait for the completion of the deployment.
 
 
 ---

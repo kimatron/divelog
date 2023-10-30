@@ -140,7 +140,7 @@ def delete_dive_log():
             spreadsheet.delete_rows(dive_index + 1)
 
             print("Dive log deleted successfully!")
-            
+
             # Update the dive_logs list after deleting a log
             dive_logs = copy.copy(spreadsheet.get_all_records())
 
@@ -272,7 +272,7 @@ def display_instructions():
    - Select this option to exit the dive log program.
 
 ===========================
-"""+ Style.RESET_ALL)
+""" + Style.RESET_ALL)
 
 
 def clean_up_terminal():
