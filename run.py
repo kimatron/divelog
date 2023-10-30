@@ -2,6 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
 import os
+from colorama import init, Fore, Style
 
 # Connect to the Google Sheets API and authenticate using the API credentials
 SCOPE = [
@@ -17,7 +18,7 @@ SHEET = GSPREAD_CLIENT.open("Dive Log")
 
 
 def display_logo():
-    print("""
+    print(Fore.BLUE + """
 ░█▀▀░█▀▀░█░█░█▀▄░█▀█░░░█▀▄░▀█▀░█░█░█▀▀░░░█░░░█▀█░█▀▀
 ░▀▀█░█░░░█░█░█▀▄░█▀█░░░█░█░░█░░▀▄▀░█▀▀░░░█░░░█░█░█░█
 ░▀▀▀░▀▀▀░▀▀▀░▀▀░░▀░▀░░░▀▀░░▀▀▀░░▀░░▀▀▀░░░▀▀▀░▀▀▀░▀▀▀
@@ -276,15 +277,15 @@ def clean_up_terminal():
 
 def display_main_menu():
     display_logo()
-    print("""======= Main Menu =======
-1. View Dive Logs
-2. Add Dive Log
-3. Delete Dive Log
-4. Search Dive Logs
-5. Instructions
-6. About
-0. Exit
-========================""")
+    print(f"{Style.BRIGHT}{Fore.YELLOW}======= Main Menu =======")
+    print(f"{Fore.GREEN}1. View Dive Logs")
+    print(f"{Fore.GREEN}2. Add Dive Log")
+    print(f"{Fore.GREEN}3. Delete Dive Log")
+    print(f"{Fore.GREEN}4. Search Dive Logs")
+    print(f"{Fore.CYAN}5. Instructions")
+    print(f"{Fore.CYAN}6. About")
+    print(f"{Fore.RED}0. Exit")
+    print(f"{Style.BRIGHT}{Fore.YELLOW}====================={Style.RESET_ALL}")
 
 # Set the flag variable to True to enter the main menu loop
 
