@@ -30,78 +30,91 @@ display_logo()
 
 
 def add_dive_log():
-    # Prompt the user to enter dive log information
-    dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
-
-    # Validate the dive date format
     while True:
-        try:
-            dive_date = datetime.strptime(dive_date, "%Y-%m-%d").date()
-            break
-        except ValueError:
-            print("Invalid date format. \
-            Please enter the date in YYYY-MM-DD format.")
-            dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
+        # Prompt the user to enter dive log information
+        dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
 
-    dive_buddy = input("Enter Dive Buddy Name:\n ")
-    dive_site = input("Enter Dive Site Name:\n ")
-    # Validate input for numeric fields
-    while True:
-        try:
-            dive_depth = int(input("Enter Dive Depth (in meters):\n "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    while True:
-        try:
-            dive_time = int(input("Enter Dive Time (in minutes):\n "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    while True:
-        starting_air = input("Enter Starting Air (in PSI):\n ")
-        if not int(starting_air):
-            print("Invalid input. Please enter an integer.")
+        # Validate the dive date format
+        while True:
+            try:
+                dive_date = datetime.strptime(dive_date, "%Y-%m-%d").date()
+                break
+            except ValueError:
+                print(Fore.RED + "Invalid date format. \
+                Please enter the date in YYYY-MM-DD format." + Style.RESET_ALL)
+                dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
+
+        dive_buddy = input("Enter Dive Buddy Name:\n ")
+        dive_site = input("Enter Dive Site Name:\n ")
+        # Validate input for numeric fields
+        while True:
+            try:
+                dive_depth = int(input("Enter Dive Depth (in meters):\n "))
+                break
+            except ValueError:
+                print(Fore.RED + "Invalid input. "
+                      "Please enter an integer." + Style.RESET_ALL)
+        while True:
+            try:
+                dive_time = int(input("Enter Dive Time (in minutes):\n "))
+                break
+            except ValueError:
+                print(Fore.RED + "Invalid input. "
+                      "Please enter an integer." + Style.RESET_ALL)
+        while True:
+            starting_air = input("Enter Starting Air (in PSI):\n ")
+            if not starting_air.isnumeric():
+                print(Fore.RED + "Invalid input. "
+                      "Please enter an integer." + Style.RESET_ALL)
+                continue
+            elif int(starting_air) < 0:
+                print(Fore.RED + "Invalid input. "
+                      "Please enter a positive integer." + Style.RESET_ALL)
+                continue
+            else:
+                break
+
+        while True:
+            ending_air = input("Enter Ending Air (in PSI):\n ")
+            if not ending_air.isnumeric():
+                print(Fore.RED + "Invalid input. "
+                      "Please enter an integer." + Style.RESET_ALL)
+                continue
+            elif int(ending_air) < 0:
+                print(Fore.RED + "Invalid input."
+                      " Please enter a positive integer." + Style.RESET_ALL)
+                continue
+            elif int(starting_air) < int(ending_air):
+                print(Fore.RED + "Invalid input. Please enter number"
+                      " less than starting air." + Style.RESET_ALL)
+                continue
+            else:
+                break
+
+        # Validate the input data
+        if not (dive_date and dive_buddy and dive_site):
+            print(Fore.RED + "Error: All fields are required." + Style.RESET_ALL)
             continue
-        elif int(starting_air) < 0:
-            print("Invalid input. Please enter a positive integer.")
-            continue
-        else:
+
+        # Open the dive log database (Google Sheets spreadsheet)
+        spreadsheet = SHEET.worksheet("DiveLog")
+
+        # Add the dive log data to the Google Sheets spreadsheet
+        new_row = [str(dive_date),
+                   dive_buddy,
+                   dive_site,
+                   dive_depth,
+                   dive_time,
+                   starting_air,
+                   ending_air]
+        spreadsheet.append_row(new_row)
+
+        print(Fore.GREEN + "Dive log added successfully!" + Style.RESET_ALL)
+
+        # Prompt the user to add another dive or return to the main menu
+        add_another = input("Add another dive? (y/n): ")
+        if add_another.lower() != "y":
             break
-
-    while True:
-        ending_air = input("Enter Ending Air (in PSI):\n ")
-        if not int(ending_air):
-            print("Invalid input. Please enter an integer.")
-            continue
-        elif int(ending_air) < 0:
-            print("Invalid input. Please enter a positive integer.")
-            continue
-        elif int(starting_air) < int(ending_air):
-            print("Invalid input. Please enter number less than starting air.")
-            continue
-        else:
-            break
-
-    # Validate the input data
-    if not (dive_date and dive_buddy and dive_site):
-        print("Error: All fields are required.")
-        return
-
-    # Open the dive log database (Google Sheets spreadsheet)
-    spreadsheet = SHEET.worksheet("DiveLog")
-
-    # Add the dive log data to the Google Sheets spreadsheet
-    new_row = [str(dive_date),
-               dive_buddy,
-               dive_site,
-               dive_depth,
-               dive_time,
-               starting_air,
-               ending_air]
-    spreadsheet.append_row(new_row)
-
-    print("Dive log added successfully!")
 
 
 def delete_dive_log():
@@ -297,6 +310,7 @@ def display_instructions():
 
 ===========================
 """ + Style.RESET_ALL)
+    print(Fore.CYAN + "Please scroll up to see all info" + Style.RESET_ALL)
 
 
 def display_goodbye():
@@ -378,15 +392,9 @@ while running:
         input("Press Enter to go back to the Main Menu.\n")
         clean_up_terminal()
 
-display_logo()
-
-while True:
-    display_main_menu()
-
 
 def main():
     display_logo()
-    set_up_menu()
     display_main_menu()
 
 
