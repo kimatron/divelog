@@ -59,17 +59,29 @@ def add_dive_log():
         except ValueError:
             print("Invalid input. Please enter an integer.")
     while True:
-        try:
-            starting_air = int(input("Enter Starting Air (in PSI):\n "))
-            break
-        except ValueError:
+        starting_air = input("Enter Starting Air (in PSI):\n ")
+        if not int(starting_air):
             print("Invalid input. Please enter an integer.")
+            continue
+        elif int(starting_air) < 0:
+            print("Invalid input. Please enter a positive integer.")
+            continue
+        else:
+            break
+
     while True:
-        try:
-            ending_air = int(input("Enter Ending Air (in PSI):\n "))
-            break
-        except ValueError:
+        ending_air = input("Enter Ending Air (in PSI):\n ")
+        if not int(ending_air):
             print("Invalid input. Please enter an integer.")
+            continue
+        elif int(ending_air) < 0:
+            print("Invalid input. Please enter a positive integer.")
+            continue
+        elif int(starting_air) < int(ending_air):
+            print("Invalid input. Please enter number less than starting air.")
+            continue
+        else:
+            break
 
     # Validate the input data
     if not (dive_date and dive_buddy and dive_site):

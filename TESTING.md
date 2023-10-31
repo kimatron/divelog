@@ -19,13 +19,24 @@ Function used for inputs validation - def display_main_menu()
 |  Please select a number from 0 to 6 to continue | "6" | Valid input, call display_about fn | Pass
 |  Please select a number from 0 to 6 to continue | "0" | Valid input, call quit fn | Pass
 
+# View Dive Logs function
 
+|  What is being tested  | Input  | Expected response  | Result
+|---|---|---|---|
+|  Dive Logs Pulled From Spreadsheet | "6" (5 records exist)  | Wrong input, please select ID from 1 to 5  | Pass
+|  Which book would you like to edit? | "g", empty (5 records exist)  | Wrong input, please select ID from 1 to 5  | Pass
+|  Which book would you like to edit? | "5" (5 records exist )  | Input valid, show book #5  | Pass
+|  What do you want to edit? Select 1-6 | "0", "a", "`", empty (6 possible choices )  | Wrong input | Pass
+|  What do you want to edit? Select 1-6 | "7" (6 possible choices )  | Wrong input | Pass
+
+The same validation method is used for input of author, title, category, status and description for both "add book" and "update book" features.
 
 
 ## Add dive log function
 
 Function used - add_dive_log() 
-The same function is used to validate book's author, category and description.
+
+The function is used to validate Dive Date, Dive Buddy Name, Dive Site Name, Dive Depth (in metres), Dive Time (in minutes), Dive Starting Air (in PSI) and Dive Ending Air (in PSI). Dive Time, Dive Depth, Dive Starting Air and Dive Ending air all require integer inputs.
 
 |  What is being tested  | Input  | Expected response  | Result
 |---|---|---|---|
@@ -51,19 +62,6 @@ Function used for inputs validation - validate_yes_no().
 |  Confirm adding this book. Y/N |  "y", "Y" | Valid input, proceed | Pass
 |  Confirm adding this book. Y/N |  "n", "N" | Valid input, abort  | Pass
 
-
-
-# Update book function
-
-|  What is being tested  | Input  | Expected response  | Result
-|---|---|---|---|
-|  Which book would you like to edit? | "6" (5 records exist)  | Wrong input, please select ID from 1 to 5  | Pass
-|  Which book would you like to edit? | "g", empty (5 records exist)  | Wrong input, please select ID from 1 to 5  | Pass
-|  Which book would you like to edit? | "5" (5 records exist )  | Input valid, show book #5  | Pass
-|  What do you want to edit? Select 1-6 | "0", "a", "`", empty (6 possible choices )  | Wrong input | Pass
-|  What do you want to edit? Select 1-6 | "7" (6 possible choices )  | Wrong input | Pass
-
-The same validation method is used for input of author, title, category, status and description for both "add book" and "update book" features.
 
 
 ## Remove book function
