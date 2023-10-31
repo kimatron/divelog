@@ -20,6 +20,16 @@ Moving the 2nd and 3rd input below the date validation fixed the problem
 
 Adding a simple exit() call fixed the problem.
 
+- When adding a new dive, input called to enter Dive Buddy Name then Dive Site Name, but when entered correctly and calling on the view dive log functions, the information was recalled in the wrong order.
+
+![Dive Buddy/Site Bug](Documentation/bugdivesitemix.png)
+
+Looking at the spreadsheet I noticed the titles were in the wrong order, so just switching columns fixed the issue:
+
+![Dive Buddy/Site Bug](Documentation/bugsitefix1.png)
+![Dive Buddy/Site Bug](Documentation/bigsitefix2.png)
+
+
 
 # Manual testing of validation and functionalities
 

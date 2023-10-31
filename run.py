@@ -114,55 +114,60 @@ def delete_dive_log():
     while True:
         # Check if there are dive logs to delete
         if not dive_logs:
-            print("No dive logs found to delete.")
+            print(Fore.YELLOW + "No dive logs found to delete." + Style.RESET_ALL)
             return
 
         # Display the list of dive logs to the user
-        print("------- Dive Logs -------")
+        print(Fore.MAGENTA + "------- Dive Logs -------" + Style.RESET_ALL)
         for index, log in enumerate(dive_logs, start=1):
             print(f"{index}."
-                  f" Dive Date: {log['Dive Date']}, "
+                  f" Dive Date: {log['Dive Date']},"
                   f" Dive Buddy: {log['Dive Buddy Name']},"
                   f" Dive Site: {log['Dive Site Name']}")
 
         # Prompt the user to select a dive log to delete
         dive_index = input("Enter the index of the dive log to delete "
-                           " (or 'q' to quit):\n ")
+                           "(or 'q' to quit, 'm' to go back to the main menu):\n ")
 
         if dive_index == 'q':
             return
+        elif dive_index.lower() == 'm':
+            return  # Go back to the main menu
 
         try:
             # Convert the input to an integer and ensure it's a valid index
             dive_index = int(dive_index)
             if dive_index < 1 or dive_index > len(dive_logs):
-                print("Invalid dive log index.")
-                continue
+                raise ValueError
 
             # Prompt the user for confirmation
-            confirmation = input("Are you sure you want to "
-                                 " delete this dive log? (y/n)\n ")
+            confirmation = input(
+                "Are you sure you want to delete this dive log? (y/n)\n ")
 
             if confirmation.lower() != 'y':
                 print("Dive log deletion canceled.")
                 continue
 
-            # Delete the selected dive log
             # Add 1 to account for the header row
             spreadsheet.delete_rows(dive_index + 1)
 
-            print("Dive log deleted successfully!")
+            print(Fore.GREEN + "Dive log deleted successfully!" + Style.RESET_ALL)
 
             # Update the dive_logs list after deleting a log
             dive_logs = copy.copy(spreadsheet.get_all_records())
 
             # Prompt the user to delete another dive log
-            delete_another = input("Do you want to delete "
-                                   " another dive log? (y/n)\n ")
+            delete_another = input(
+                "Do you want to delete another dive log? (y/n)\n ")
             if delete_another.lower() != 'y':
                 return
         except ValueError:
-            print("Invalid input. Please enter a number.")
+            print(
+                Fore.RED + "Invalid input. Please enter a valid index." + Style.RESET_ALL)
+            delete_another = input(
+                "Do you want to delete another dive log? (y/n)\n")
+            if delete_another.lower() != 'y':
+                return
 
 
 def view_dive_logs():
@@ -188,6 +193,8 @@ def view_dive_logs():
         print(f"Dive Time: {log['Dive Time']}")
         print(f"Starting Air: {log['Starting Air']}")
         print(f"Ending Air: {log['Ending Air']}")
+        print(Fore.MAGENTA + "------------------------" + Style.RESET_ALL)
+        print(Fore.CYAN + "Please scroll to see all logs" + Style.RESET_ALL)
         print(Fore.MAGENTA + "------------------------" + Style.RESET_ALL)
 
 
