@@ -178,17 +178,17 @@ def view_dive_logs():
         return
 
     # Display the dive logs to the user
-    print("------- Dive Logs -------")
+    print(Fore.MAGENTA + "------- Dive Logs -------" + Style.RESET_ALL)
     for index, log in enumerate(dive_logs, start=1):
-        print(f"Dive {index}:")
-        print(f"Dive Date: {log['Dive Date']}")
+        print(Fore.YELLOW + f"Dive {index}:" + Style.RESET_ALL)
+        print(Fore.GREEN + f"Dive Date: {log['Dive Date']}")
         print(f"Dive Buddy: {log['Dive Buddy Name']}")
         print(f"Dive Site: {log['Dive Site Name']}")
         print(f"Dive Depth: {log['Dive Depth']}")
         print(f"Dive Time: {log['Dive Time']}")
         print(f"Starting Air: {log['Starting Air']}")
         print(f"Ending Air: {log['Ending Air']}")
-        print("------------------------")
+        print(Fore.MAGENTA + "------------------------" + Style.RESET_ALL)
 
 
 def search_dive_logs():
@@ -370,3 +370,13 @@ display_logo()
 
 while True:
     display_main_menu()
+
+
+def main():
+    display_logo()
+    set_up_menu()
+    display_main_menu()
+
+
+if __name__ == "__main__":
+    main()
