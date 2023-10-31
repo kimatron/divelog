@@ -32,8 +32,6 @@ display_logo()
 def add_dive_log():
     # Prompt the user to enter dive log information
     dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
-    dive_buddy = input("Enter Dive Buddy Name:\n ")
-    dive_site = input("Enter Dive Site Name:\n ")
 
     # Validate the dive date format
     while True:
@@ -45,6 +43,8 @@ def add_dive_log():
             Please enter the date in YYYY-MM-DD format.")
             dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
 
+    dive_buddy = input("Enter Dive Buddy Name:\n ")
+    dive_site = input("Enter Dive Site Name:\n ")
     # Validate input for numeric fields
     while True:
         try:

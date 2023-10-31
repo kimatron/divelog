@@ -1,3 +1,26 @@
+## Bugs
+
++ **Solved bugs**
+
+When adding an invalid date the incorrect input wasn't notified until after three questions.
+
+![Date Validation Bug](Documentation/bugdatevalidation.png)
+
+After pulling my hair out for about 28minutes I found the simple issue was I was calling three questions before validating the first one
+
+![Date Validation Bug](Documentation/bugfinddatevalidation.png)
+
+Moving the 2nd and 3rd input below the date validation fixed the problem
+
+![Date Validation Bug](Documentation/bugdatevalidationfix.png)
+
+- When trying to quit the program I encountered my first real life neverending infinity bug:
+
+![Exit Infinity Bug](Documentation/bugexitloop.gif)
+
+Adding a simple exit() call fixed the problem.
+
+
 # Manual testing of validation and functionalities
 
 Testing of application functionalities and validations were done throughout the building process.
