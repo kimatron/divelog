@@ -214,47 +214,68 @@ def view_dive_logs():
 
 
 def search_dive_logs():
-    # Get the search query from the user
-    search_query = input(
-        "Enter a specific search query (Dive Site Name, Dive Buddy, Dive Date...):\n ")
+    while True:
+        # Get the search query from the user
+        search_query = input(
+            "Enter a specific search query (Dive Site Name, Dive Buddy, Dive Date...):\n ")
 
-    # Open the dive log database (Google Sheets spreadsheet)
-    spreadsheet = SHEET.worksheet("DiveLog")
+        # Open the dive log database (Google Sheets spreadsheet)
+        spreadsheet = SHEET.worksheet("DiveLog")
 
-    # Create a list to store the matching dive logs
-    matching_logs = []
+        # Create a list to store the matching dive logs
+        matching_logs = []
 
-    # Get all dive logs from the spreadsheet
-    dive_logs = spreadsheet.get_all_records()
+        # Get all dive logs from the spreadsheet
+        dive_logs = spreadsheet.get_all_records()
 
-    # Iterate over each dive log
-    for log in dive_logs:
-        # Check if any field in the log contains the search query
-        if search_query.lower() in [str(value).lower() for value in log.values()]:
-            # Add the matching log to the list
-            matching_logs.append(log)
+        # Iterate over each dive log
+        for log in dive_logs:
+            # Check if any field in the log contains the search query
+            if search_query.lower() in [str(value).lower() for value in log.values()]:
+                # Add the matching log to the list
+                matching_logs.append(log)
 
-    # Check if there are matching dive logs
-    if not matching_logs:
-        print("No matching dive logs found.")
-        return
+        # Check if there are matching dive logs
+        if not matching_logs:
+            print("No matching dive logs found.")
+            search_again = input(
+                "Would you like to search for another dive log? (Y/N): ")
+            while search_again.lower() != "y" and search_again.lower() != "n":
+                print(Style.BRIGHT + Fore.RED + "Invalid input. "
+                      "Please enter 'Y' or 'N'." + Style.RESET_ALL)
+                search_again = input(
+                    "Would you like to search for another dive log? (Y/N): ")
+            if search_again.lower() == "n":
+                return
+            else:
+                continue
 
-    # Display the matching dive logs to the user
-    print("------- Matching Dive Logs -------")
-    for index, log in enumerate(matching_logs, start=1):
-        print(f"Dive {index}:")
-        print(f"Dive Date: {log['Dive Date']}")
-        print(f"Dive Buddy: {log['Dive Buddy Name']}")
-        print(f"Dive Site: {log['Dive Site Name']}")
-        print(f"Dive Depth: {log['Dive Depth']}")
-        print(f"Dive Time: {log['Dive Time']}")
-        print(f"Starting Air: {log['Starting Air']}")
-        print(f"Ending Air: {log['Ending Air']}")
-        print("------------------------")
+        # Display the matching dive logs to the user
+        print("------- Matching Dive Logs -------")
+        for index, log in enumerate(matching_logs, start=1):
+            print(f"Dive {index}:")
+            print(f"Dive Date: {log['Dive Date']}")
+            print(f"Dive Buddy: {log['Dive Buddy Name']}")
+            print(f"Dive Site: {log['Dive Site Name']}")
+            print(f"Dive Depth: {log['Dive Depth']}")
+            print(f"Dive Time: {log['Dive Time']}")
+            print(f"Starting Air: {log['Starting Air']}")
+            print(f"Ending Air: {log['Ending Air']}")
+            print("------------------------")
 
-        # Print "Please scroll to see all logs" message at the end
-        if index == len(matching_logs):
-            print(Fore.CYAN + "Please scroll to see all logs" + Style.RESET_ALL)
+            # Print "Please scroll to see all logs" message at the end
+            if index == len(matching_logs):
+                print(Fore.CYAN + "Please scroll to see all logs" + Style.RESET_ALL)
+
+        search_again = input(
+            "Would you like to search for another dive log? (Y/N): ")
+        while search_again.lower() != "y" and search_again.lower() != "n":
+            print(Style.BRIGHT + Fore.RED + "Invalid input. "
+                  "Please enter 'Y' or 'N'." + Style.RESET_ALL)
+            search_again = input(
+                "Would you like to search for another dive log? (Y/N): ")
+        if search_again.lower() == "n":
+            return
 
 
 def display_about():
