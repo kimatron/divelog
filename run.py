@@ -287,6 +287,30 @@ def display_instructions():
 """ + Style.RESET_ALL)
 
 
+def display_goodbye():
+    print(f"{Style.BRIGHT}{Fore.BLUE}See you after the next dive!")
+    print(f"""          )    O
+               (   o . O
+                )   () .
+               /  O   o
+             _.|._ o .()
+  _         / _:_ \\
+ <_><)     |.(_"_).|
+    __     _\\. : ./_
+ |><_'>   / |..:..| \\
+         /_/ `---' \\_\\       ,
+ ,  (.   \\_)        \\_)  \\)-<
+ _) \\)~    \\   T   /    ,(_)
+_/ -(-<    _)__|__(_    \\_)-<~
+\\)~ )-<  /....|....\\  .~(_,_"
+>(_ (_/   """""" """"""    _\\
+`-.__)__\\_.----'`-.______.-'  `-.__
+                                       kim
+""")
+    print(Style.RESET_ALL)
+    exit()
+
+
 def clean_up_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -333,27 +357,8 @@ while running:
         # Call the display_about function
         display_about()
     elif option == "0":
-        print(f"{Style.BRIGHT}{Fore.BLUE}See you after the next dive!")
-        print(f"""          )    O
-               (   o . O
-                )   () .
-               /  O   o
-             _.|._ o .()
-  _         / _:_ \\
- <_><)     |.(_"_).|
-    __     _\\. : ./_
- |><_'>   / |..:..| \\
-         /_/ `---' \\_\\       ,
- ,  (.   \\_)        \\_)  \\)-<
- _) \\)~    \\   T   /    ,(_)
-_/ -(-<    _)__|__(_    \\_)-<~
-\\)~ )-<  /....|....\\  .~(_,_"
->(_ (_/   """""" """"""    _\\
-`-.__)__\\_.----'`-.______.-'  `-.__
-                                       kim
-""")
-        print(Style.RESET_ALL)
-        exit()
+        # Call the display_goodbye function
+        display_goodbye()
     else:
         print("Invalid option. Please try again.")
 
