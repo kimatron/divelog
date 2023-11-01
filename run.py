@@ -266,7 +266,7 @@ def search_dive_logs():
 
         # Check if there are matching dive logs
         if not matching_logs:
-            print("No matching dive logs found.")
+            print(Fore.GREEN + "No matching dive logs found." + Style.RESET_ALL)
             search_again = input(
                 "Would you like to search for another dive log? (Y/N): ")
             while search_again.lower() != "y" and search_again.lower() != "n":

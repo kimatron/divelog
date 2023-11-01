@@ -1,12 +1,13 @@
 # Scuba Dive Log
 
 
-![Scuba Dive Log](Documentation/scubadiveloggrab11.png)
+![Scuba Dive Log](documentation/scubadiveloggrab11.png)
 
 *The link to [Scuba Dive Log](https://dive-log-9f66ea37cc55.herokuapp.com/)*
 
-Scuba Dive Log is a Python terminal project designed to log users' scuba dive information. It allows divers to keep track of all their dives by storing useful information such as dive date, dive buddy, dive site name, dive depth (in meters), dive time (in minutes), and air consumed (in PSI or bar).
+Scuba Dive Log is a Python terminal project designed to log users' scuba dive information. It allows divers to keep track of all their dives by storing useful information such as dive date, dive buddy, dive site name, dive depth (in meters), dive time (in minutes), and air consumed (in PSI).
 
+PSI stands for Pounds per Square Inch which is an important unit of measurement used when scuba diving. It measures the amount of air pressure inside the cylinder that divers breathe from while underwater. Knowing how much air pressure there is in your scuba tank helps divers plan dives safely and accurately so that they can make the most out of their dives!
 
 ---
 ## Table of Contents
@@ -110,7 +111,7 @@ Link to the program: *[https://dive-log-9f66ea37cc55.herokuapp.com/](https://div
 
 ## Flowchart
 
-The flowchart below represents the logic of the Scuba Dive Log application:
+The flowchart below represents the logic progression of the Scuba Dive Log application:
 
 ![FlowChart](documentation/firstflowchart.png)
 ![FlowChart](documentation/lucidflowchart.png)
