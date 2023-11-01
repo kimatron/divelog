@@ -140,6 +140,7 @@ def add_dive_log():
     while True:
         add_another = input("Add another dive? (y/n):\n ")
         if add_another.lower() == "y":
+            add_dive_log()  # Call the add_dive_log() function again to add another dive log
             break
         elif add_another.lower() == "n":
             return
@@ -151,34 +152,25 @@ def delete_dive_log():
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
 
-    # Get all dive logs from the spreadsheet
-    dive_logs = spreadsheet.get_all_records()
-
     while True:
+        # Get all dive logs from the spreadsheet
+        dive_logs = spreadsheet.get_all_records()
+
         # Check if there are dive logs to delete
         if not dive_logs:
-            print(Fore.YELLOW + "No dive logs"
-                  " found to delete." + Style.RESET_ALL)
+            print(Fore.YELLOW + "No dive logs found to delete." + Style.RESET_ALL)
             return
 
         # Display the list of dive logs to the user
         print(Fore.MAGENTA + "------- Dive Logs -------" + Style.RESET_ALL)
         for index, log in enumerate(dive_logs, start=1):
-            print(f"{index}."
-                  f" Dive Date: {log['Dive Date']},"
-                  f" Dive Buddy: {log['Dive Buddy Name']},"
-                  f" Dive Site: {log['Dive Site Name']}")
+            print(
+                f"{index}. Dive Date: {log['Dive Date']}, Dive Buddy: {log['Dive Buddy Name']}, Dive Site: {log['Dive Site Name']}")
 
         # Prompt the user to select a dive log to delete
-            dive_index = input(
-                f"""
-Enter the index of the dive log to delete (or 'm' to go back to the main menu):
+        dive_index = input(
+            "Enter the index of the dive log to delete (or 'm' to go back to the main menu):\n")
 
-"""
-            )
-
-        if dive_index == 'q':
-            return
         if dive_index.lower() == 'm':
             return  # Go back to the main menu
 
@@ -189,8 +181,8 @@ Enter the index of the dive log to delete (or 'm' to go back to the main menu):
                 raise ValueError
 
             # Prompt the user for confirmation
-            confirmation = input(
-                "Are you sure you want to delete this dive log? (y/n)\n ")
+            confirmation = input(Fore.YELLOW +
+                                 "Are you sure you want to delete this dive log? (y/n)\n" + Style.RESET_ALL)
 
             if confirmation.lower() != 'y':
                 print("Dive log deletion canceled.")
@@ -199,25 +191,23 @@ Enter the index of the dive log to delete (or 'm' to go back to the main menu):
             # Add 1 to account for the header row
             spreadsheet.delete_rows(dive_index + 1)
 
-            print(Fore.GREEN + "Dive log deleted "
-                  "successfully!" + Style.RESET_ALL)
-
-            # Update the dive_logs list after deleting a log
-            dive_logs = copy.copy(spreadsheet.get_all_records())
-
-            # Prompt the user to delete another dive log
-            delete_another = input(
-                "Do you want to delete another dive log? (y/n)\n ")
-            if delete_another.lower() != 'y':
-                return
+            print(Fore.GREEN + "Dive log deleted successfully!" + Style.RESET_ALL)
         except ValueError:
             print(
                 Fore.RED + "Invalid input. "
-                "Please enter a valid index." + Style.RESET_ALL)
-            delete_another = input(
-                "Do you want to delete another dive log? (y/n)\n")
-            if delete_another.lower() != 'y':
-                return
+                "Please enter a valid index." + Style.RESET_ALL
+            )
+
+        # Prompt the user to delete another dive log
+        delete_another = input(
+            "Do you want to delete another dive log? (y/n)\n")
+
+        if delete_another.lower() == 'y':
+            continue  # Continue the loop to prompt for another dive log deletion
+        elif delete_another.lower() == 'n':
+            return  # Return from the function to go back to the main menu
+
+        print(Fore.RED + "Invalid input. Please enter 'y' or 'n'." + Style.RESET_ALL)
 
 
 def view_dive_logs():

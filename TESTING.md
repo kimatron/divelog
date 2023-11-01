@@ -43,13 +43,15 @@ Adding a simple exit() call fixed the problem.
 
 ![All fields required Bug](documentation/bugsearchrequiredfix.png)
 
-## Unfixed bug
+## Unfixed bugs
 
 - When deleting a dive log the program gives an option to delete another index or go back to the main menu.
 It gives the correct error of invalid input for the first incorrect input, but then allows to go back to the main menu.
 I don't think this is a big problem, but will fix it when I get a chance.
 
 ![Double input error bug](documentation/unfixedbug.png)
+
+- In the delete log function, when an invalid option is entered twice in a row, the invalid error sign shows briefly and automatically displays all dive logs again. There is something wrong with the loop, that I will fix as soon as I get the chance. The function still works, it's just not as user friendly as I want it to be.
 
 
 
