@@ -9,6 +9,28 @@ Scuba Dive Log is a Python terminal project designed to log users' scuba dive in
 
 
 ---
+## Table of Contents
+
+1. [Scuba Dive Log](#scuba-dive-log)
+2. [How to use the program](#how-to-use-the-program)
+3. [User Stories](#user-stories)
+   - [First Time Visitor Goals](#first-time-visitor-goals)
+   - [Frequent Visitor Goals](#frequent-visitor-goals)
+4. [Features](#features)
+5. [Flowchart](#flowchart)
+6. [Database Structure](#database-structure)
+7. [Technologies Used](#technologies-used)
+   - [Languages](#languages)
+   - [Frameworks/Libraries, Programs, and Tools](#frameworkslibraries-programs-and-tools)
+8. [Bugs](#bugs)
+9. [Testing](#testing)
+10. [Validation](#validation)
+11. [Deployment](#deployment)
+   - [Git and GitHub](#git-and-github)
+   - [Deployment to Heroku](#deployment-to-heroku)
+12. [Future Enhancements](#future-enhancements)
+13. [Credits](#credits)
+14. [Acknowledgments](#acknowledgments)
 
 ## How to use the program:
 
@@ -233,15 +255,16 @@ These future enhancements would further enhance the functionality and usability 
 ---
 ## Credits
 - Used [Code Institute](https://github.com/Code-Institute-Org/python-essentials-template) template to start off project.
-- Sourced some style code ideas for adjusting photo size and layout from various sources online:
+- Sourced some style code ideas for formatting long lines of code and adding color effectively:
 [w3schools](www.w3schools.com),
 [Stackoverflow](Stackoverflow.com),
 [FreeCodeCamp](www.freecodecamp.org).
 - Rewatched Love Sandwiches project from [Code Institute](www.codeinstitute.com) for inspiration on how to start setting up my site
 - Used [TextKool](https://textkool.com/) to create Dive Log logo with Ascii generator.
-- 
+- Read through README.md and TESTING.md of older projects to get template base of what information I needed to fill in for my documentation.
+- Used [Asciiart](https://www.asciiart.eu/sports-and-outdoors/scuba) for the ascii scuba diver art in the goodbye message.
 
 ### Acknowledgments
-- Thanks to Viola for keeping me sane and providing advice at silly o clock in the morning when my eyes weren't working anymore and joining me for a hackathon in the middle of the project, as if we didn't have enough to keep us awake at night :)
-- And thanks to my mentor [Juliia](https://github.com/IuliiaKonovalova) for not ignoring me and jumping in to answer all my annoying questions whenever she was asked :)  
+- Thanks to [Viola](https://github.com/violaberg) for keeping me sane and providing advice and motivation at silly o clock in the morning when my eyes weren't working anymore and joining me for ANOTHER halloween hackathon in the middle of the project, just to add more stress to the mix :)
+- And thanks to my mentor [Juliia](https://github.com/IuliiaKonovalova) for putting up with my "working best under time pressure" method of working and providing helpful advice and figuring out my bugs with her keen eye :)  
  
