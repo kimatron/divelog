@@ -159,7 +159,7 @@ Please refer to the [TESTING.md](TESTING.md) file for all test related documenta
 
 [PEP8CI](https://pep8ci.herokuapp.com/) app was used to lint the code.
 It was helpful to edit with then copy the fixed code back into VS Code.
-After a ropey start with many errors that gave me a fright initially, I got it down to no errors without too much hardship.
+After a ropey start with many errors that gave me a fright initially, I got it down to no errors without too much hardship. Most of the issues involved having lines that had too many characters, white space, or wrong indents.
 
 ![pep8_validation](documentation/linterpass.png)
 #   Deployment
@@ -204,11 +204,13 @@ choose repository name and clicked on the green button "Create repository from t
 
 6. Go back to "Deploy" tab (I and decided to use automatic deploys), however manual mode is also available to deploy chosen branch. 
 
-7. The link to my deployed app was shown on screen: https://pp3-home-library.herokuapp.com/
+7. The link to my deployed app was shown on screen: https://dive-log-9f66ea37cc55.herokuapp.com//
 
 ## Future Enhancements
 
 There are several future enhancements that can be made to improve the functionality and user experience of the Scuba Dive Log program:
+
+- When I get time I will finish off adding and co-ordinating color to all text, make a more aesthetically pleasing background and make it functioning on mobile phones.
 
 - Implement user authentication to allow multiple users to log in and manage their own dive logs. This would provide a more secure and personalized experience for users.
 
