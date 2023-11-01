@@ -22,12 +22,27 @@ Adding a simple exit() call fixed the problem.
 
 - When adding a new dive, input called to enter Dive Buddy Name then Dive Site Name, but when entered correctly and calling on the view dive log functions, the information was recalled in the wrong order.
 
-![Dive Buddy/Site Bug](Documentation/bugdivesitemix.png)
+![Dive Buddy/Site Bug](documentation/bugdivesitemix.png)
 
-Looking at the spreadsheet I noticed the titles were in the wrong order, so just switching columns fixed the issue:
+- Looking at the spreadsheet I noticed the titles were in the wrong order, so just switching columns fixed the issue:
 
-![Dive Buddy/Site Bug](Documentation/bugsitefix1.png)
-![Dive Buddy/Site Bug](Documentation/bigsitefix2.png)
+![Dive Buddy/Site Bug](documentation/bugsitefix1.png)
+![Dive Buddy/Site Bug](documentation/bigsitefix2.png)
+
+- The Yes/No query input was accepting any key responses, then when I tried to fix it the N response was not diverting back to the main menu
+
+![y/n Bug](documentation/yesnoany.png)
+![y/n Bug initial fix](documentation/bugyesnofix.png)
+![y/n Bug fix](documentation/bugyesnonewfix.png)
+
+- When showing an error on empty fields when adding dives, the error wasn't showing straight away because I was doing my validation together at the end of inputs in the function. Then with my initial fix, when the error showed it brought the user back to the start of the form to begin all over again. This would be a very frustrating user experience. 
+
+![All fields required Bug](documentation/bugallfields.png)
+
+* To fix it I added checks on each individual input.
+
+![All fields required Bug](documentation/bugsearchrequiredfix.png)
+
 
 
 
