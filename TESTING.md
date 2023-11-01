@@ -43,6 +43,14 @@ Adding a simple exit() call fixed the problem.
 
 ![All fields required Bug](documentation/bugsearchrequiredfix.png)
 
+## Unfixed bug
+
+- When deleting a dive log the program gives an option to delete another index or go back to the main menu.
+It gives the correct error of invalid input for the first incorrect input, but then allows to go back to the main menu.
+I don't think this is a big problem, but will fix it when I get a chance.
+
+![Double input error bug](documentation/unfixedbug.png)
+
 
 
 

@@ -130,7 +130,7 @@ def add_dive_log():
 
     # Prompt the user to add another dive or return to the main menu
     while True:
-        add_another = input("Add another dive? (y/n): ")
+        add_another = input("Add another dive? (y/n):\n ")
         if add_another.lower() == "y":
             break
         elif add_another.lower() == "n":
@@ -163,7 +163,7 @@ def delete_dive_log():
 
         # Prompt the user to select a dive log to delete
         dive_index = input("Enter the index of the dive log to delete (or "
-                           "'q' to quit, 'm' to go back to the main menu):\n ")
+                           "'m' to go back to the main menu):\n ")
 
         if dive_index == 'q':
             return
@@ -268,12 +268,12 @@ def search_dive_logs():
         if not matching_logs:
             print(Fore.GREEN + "No matching dive logs found." + Style.RESET_ALL)
             search_again = input(
-                "Would you like to search for another dive log? (Y/N): ")
+                "Would you like to search for another dive log? (Y/N):\n ")
             while search_again.lower() != "y" and search_again.lower() != "n":
                 print(Style.BRIGHT + Fore.RED + "Invalid input. "
                       "Please enter 'Y' or 'N'." + Style.RESET_ALL)
                 search_again = input(
-                    "Would you like to search for another dive log? (Y/N): ")
+                    "Would you like to search for another dive log? (Y/N):\n ")
             if search_again.lower() == "n":
                 return
             else:
@@ -298,12 +298,12 @@ def search_dive_logs():
                       "to see all logs" + Style.RESET_ALL)
 
         search_again = input(
-            "Would you like to search for another dive log? (Y/N): ")
+            "Would you like to search for another dive log? (Y/N):\n ")
         while search_again.lower() != "y" and search_again.lower() != "n":
             print(Style.BRIGHT + Fore.RED + "Invalid input. "
                   "Please enter 'Y' or 'N'." + Style.RESET_ALL)
             search_again = input(
-                "Would you like to search for another dive log? (Y/N): ")
+                "Would you like to search for another dive log? (Y/N):\n ")
         if search_again.lower() == "n":
             return
 
@@ -318,6 +318,7 @@ def display_about():
     and viewing all previous dive logs.
 
     Developed by [Kim Hanlon]
+    GitHub [github.com/kimatron]
     Version: 1.0
     """ + Style.RESET_ALL)
 

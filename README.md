@@ -150,9 +150,6 @@ The ID column value is assigned automatically when a new divelog is added.
 
 ##### Third-party imports:
 
-- [NLTK Package](https://www.nltk.org/) was used in order to be able to work with pattern package.
-- [Pattern Package](https://stackabuse.com/python-for-nlp-introduction-to-the-pattern-library/) was used to pluralize nouns where it is needed.
-- [Simple Terminal Menu](https://pypi.org/project/simple-term-menu/) was used to implement the menu.
 - [Colorama](https://pypi.org/project/colorama/) was used to add colors and styles to the project.
 
 #### Other tools:
@@ -190,8 +187,8 @@ After a ropey start with many errors that gave me a fright initially, I got it d
 ## Git and GitHub
 
 1. [Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template) was used to create GitHub public 
-repository [divelog](https://github.com/kimatron/divelog). In template repository clicked on "use this template" --> "create new repository", 
-choose repository name and clicked on the green button "Create repository from template".
+repository [divelog](https://github.com/kimatron/divelog). In template repository click on "use this template" --> "create new repository", 
+choose repository name and click on the green button "Create repository from template".
 
 2. Clone repository to your local machine using GitHub.
 3. Use the following commands to add, commit and push changes:
@@ -208,24 +205,24 @@ choose repository name and clicked on the green button "Create repository from t
 
 ## Deployment to Heroku
 
-1. Navigate to [https://heroku.com/](https://heroku.com/) and open dashboard. Then  click the button "New" and select "Create new app" button.
+1. Navigate to [https://heroku.com/](https://heroku.com/) and open dashboard. Then click the button "New" and select "Create new app" button.
 
-2. Enter app name, chose region, and click on "Create app" button
+2. Enter app name, choose region, and click on "Create app" button
 
-3. The next step was to go to "Deploy" tab and then to "Deployment method" section to authorize and connect your GitHub account.
+3. The next step is to go to "Deploy" tab and then to "Deployment method" section to authorize and connect your GitHub account.
 
-4. Upon succesfull connection select main branch from repository.
+4. Upon successful connection, select main branch from repository.
 
 5. Then go to "Settings" tab.
 
 6. Next go to "Buildpacks" section. Add python and nodejs buildpacks. Order here is very important.
 
-7. Next go to "Config Vars" section and add KEY "CREDS" - that maches your token name defined in python constant
+7. Next go to "Config Vars" section and add KEY "CREDS" - that matches your token name defined in python constant
  in [api/google_sheets_api.py] with value of your credentials token (copy all and paste).
 
-8. Add key "PORT" with value "8080" and save changes.
+8. Add key "PORT" with value "8000" and save changes.
 
-6. Go back to "Deploy" tab (I and decided to use automatic deploys), however manual mode is also available to deploy chosen branch. 
+6. Go back to "Deploy" tab. I initially used manually deploy, but you can also use automatic deploy. I had this set up, but I found it wasn't deploying the updated latest push for some reason. Maybe I'm just too impatient!
 
 7. The link to my deployed app was shown on screen: https://dive-log-9f66ea37cc55.herokuapp.com//
 
