@@ -36,15 +36,21 @@ def add_dive_log():
     # Validate the dive date format
     while True:
         if not dive_date:
-            print(Fore.RED + "Error: Date of Dive is required." + Style.RESET_ALL)
+            print("Error: Date of Dive is required.")
             dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
         else:
             try:
                 dive_date = datetime.strptime(dive_date, "%Y-%m-%d").date()
+                if dive_date > datetime.now().date():
+                    print(Fore.RED + "Date of Dive "
+                          "cannot be in the future." + Style.RESET_ALL)
+                    dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
+                    continue
                 break
             except ValueError:
                 print(Fore.RED + "Invalid date format. "
-                      "Please enter the date in YYYY-MM-DD format." + Style.RESET_ALL)
+                      "Please enter the date "
+                      "in YYYY-MM-DD format." + Style.RESET_ALL)
                 dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
 
     dive_buddy = input("Enter Dive Buddy Name:\n ")
