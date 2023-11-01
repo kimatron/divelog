@@ -19,6 +19,9 @@ SHEET = GSPREAD_CLIENT.open("Dive Log")
 
 
 def display_logo():
+    """
+    Function to display Scuba Dive Log Logo
+    """
     print(Fore.BLUE + """
 ░█▀▀░█▀▀░█░█░█▀▄░█▀█░░░█▀▄░▀█▀░█░█░█▀▀░░░█░░░█▀█░█▀▀
 ░▀▀█░█░░░█░█░█▀▄░█▀█░░░█░█░░█░░▀▄▀░█▀▀░░░█░░░█░█░█░█
@@ -449,6 +452,10 @@ def clean_up_terminal():
 
 
 def display_main_menu():
+    """
+    Function to display main menu options when called
+
+    """
     display_logo()
     print(f"{Style.BRIGHT}{Fore.YELLOW}======= Main Menu =======")
     print(f"{Fore.GREEN}1. View Dive Logs")
