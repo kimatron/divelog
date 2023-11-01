@@ -53,6 +53,12 @@ I don't think this is a big problem, but will fix it when I get a chance.
 
 - In the delete log function, when an invalid option is entered twice in a row, the invalid error sign shows briefly and automatically displays all dive logs again. There is something wrong with the loop, that I will fix as soon as I get the chance. The function still works, it's just not as user friendly as I want it to be.
 
+## Mystery Bug
+Twice when I clicked on my deployed link the deployed screen did not load properly. No code had been edited or changed for it to cause an error, by redeploying it on heroku it displayed correctly again. Hopefully it does not do this again when I am not working on it daily to notice.
+
+![Double input error bug](documentation/divelognotworking.png)
+
+
 
 
 
@@ -99,6 +105,7 @@ The function is used to validate Dive Date, Dive Buddy Name, Dive Site Name, Div
 | Invalid date format                                    | Date: 2022-01-01 | Invalid date format. Please enter the date in YYYY-MM-DD format.    | Passed      |
 | Invalid numeric input for dive depth                   | Dive Depth: abc | Invalid input. Please enter an integer.   | Passed      |
 | Invalid numeric input for dive time                    | Dive Time: abc | Invalid input. Please enter an integer.   | Passed      |
+| Invalid numeric input for dive time                    | Dive Time: -50 | Invalid input. Dive time must be postive integer.   | Passed      |
 | Invalid numeric input and order for starting air       | Starting Air: abc | Invalid input. Please enter an integer. | Passed      |
 | Invalid numeric input and order for ending air         | Ending Air: abc | Invalid input. Please enter an integer. | Passed      |
 | Invalid Ending Air Higher Than Starting Air         | Ending Air: 9999 | Invalid input. Please enter number less than starting air. | Passed   
@@ -135,7 +142,7 @@ The function is used to validate Dive Date, Dive Buddy Name, Dive Site Name, Div
 | Invalid input - non-integer value                | User input: 'abc'                | Error message displayed, no dive log is deleted | Passed      |
 | Invalid input - out of range index               | User input: 10                   | Error message displayed, no dive log is deleted | Passed      |
 | Valid input - cancel dive log deletion           | User input: 'n'                  | Dive log deletion canceled, no dive log is deleted | Passed      |
-| Valid input - delete a dive log and delete another| User inputs: 2, 'y', 'y'         | Dive log at index 2 is deleted, and another dive log is deleted as well | Passed      |
+| Valid input - delete a dive log and delete another| User inputs: 2, 'y', 'y'         | Dive log at index 2 is deleted, and dive index is called to delete another | Passed      |
 | Valid input - return to main menu                 | User input: 'm'                  | Returns to the main menu, no dive log is deleted | Passed      |
 
 
