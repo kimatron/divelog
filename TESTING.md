@@ -43,14 +43,14 @@ Function used for inputs validation - def display_main_menu()
 
 | What is being tested | Input  | Expected response | Result  |
 |---|---|---|---|
-|  Please select a number from 0 to 6 to continue | "any number not 0-6", "abc", "empty"   |Wrong input | Pass
+|  Please select a number from 0 to 6 to continue | "any number not 0-6", "abc", "empty"   |Invalid Option - Try Again | Pass
 |  Please select a number from 0 to 6 to continue | "1" | Valid input, call view_dive_logs fn  | Pass
 |  Please select a number from 0 to 6 to continue | "2" | Valid input, call add_dive_log fn | Pass
 |  Please select a number from 0 to 6 to continue | "3" | Valid input, call delete_dive_log fn | Pass
 |  Please select a number from 0 to 6 to continue | "4" | Valid input, call search_dive_logs fn  | Pass
 |  Please select a number from 0 to 6 to continue | "5" | Valid input, call display_instructions fn | Pass
 |  Please select a number from 0 to 6 to continue | "6" | Valid input, call display_about fn | Pass
-|  Please select a number from 0 to 6 to continue | "0" | Valid input, call quit fn | Pass
+|  Please select a number from 0 to 6 to continue | "0" | Valid input, call goodbye fn | Pass
 
 # View Dive Logs function
 
@@ -76,7 +76,7 @@ The function is used to validate Dive Date, Dive Buddy Name, Dive Site Name, Div
 | Invalid numeric input for dive time                    | Dive Time: abc | Invalid input. Please enter an integer.   | Passed      |
 | Invalid numeric input and order for starting air       | Starting Air: abc | Invalid input. Please enter an integer. | Passed      |
 | Invalid numeric input and order for ending air         | Ending Air: abc | Invalid input. Please enter an integer. | Passed      |
-
+| Invalid Ending Air Higher Than Starting Air         | Ending Air: 9999 | Invalid input. Please enter number less than starting air. | Passed   
 
 
 ## Yes/No question

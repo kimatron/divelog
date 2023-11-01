@@ -113,9 +113,16 @@ def add_dive_log():
         print(Fore.GREEN + "Dive log added successfully!" + Style.RESET_ALL)
 
         # Prompt the user to add another dive or return to the main menu
-        add_another = input("Add another dive? (y/n): ")
-        if add_another.lower() != "y":
-            break
+        while True:
+            add_another = input("Add another dive? (y/n): ")
+            if add_another.lower() == "y":
+                break
+            elif add_another.lower() == "n":
+                return
+        # This will exit the add_dive_log() function and return to the main menu
+            else:
+                print(
+                    Fore.RED + "Invalid input. Please enter 'y' or 'n'." + Style.RESET_ALL)
 
 
 def delete_dive_log():
