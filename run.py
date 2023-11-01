@@ -54,12 +54,12 @@ def add_dive_log():
                 dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
 
     dive_buddy = input("Enter Dive Buddy Name:\n ")
-    while not dive_buddy:
+    while not dive_buddy and int(dive_buddy):
         print(Fore.RED + "Error: Dive Buddy Name is required." + Style.RESET_ALL)
         dive_buddy = input("Enter Dive Buddy Name:\n ")
 
     dive_site = input("Enter Dive Site Name:\n ")
-    while not dive_site:
+    while not dive_site and int(dive_site):
         print(Fore.RED + "Error: Dive Site Name is required." + Style.RESET_ALL)
         dive_site = input("Enter Dive Site Name:\n ")
 
