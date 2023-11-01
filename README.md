@@ -144,7 +144,9 @@ The ID column value is assigned automatically when a new divelog is added.
 
 ---
 
+## Bugs
 
+Please refer to the [TESTING.md](TESTING.md) file for all bug related documentation.
 ---
 ## Testing
 
@@ -204,6 +206,27 @@ choose repository name and clicked on the green button "Create repository from t
 
 7. The link to my deployed app was shown on screen: https://pp3-home-library.herokuapp.com/
 
+## Future Enhancements
+
+There are several future enhancements that can be made to improve the functionality and user experience of the Scuba Dive Log program:
+
+- Implement user authentication to allow multiple users to log in and manage their own dive logs. This would provide a more secure and personalized experience for users.
+
+- Add the ability to edit existing dive logs. Currently, users can only add or delete dive logs. Allowing for edits would provide more flexibility in managing dive information.
+
+- Improve the search functionality to allow for more advanced search options. For example, users could search for dive logs by a specific date range or dive depth range, making it easier to find specific dives.
+
+- Implement more data validation to ensure that input values meet the required format and constraints. This would help prevent errors and ensure that the dive log data is accurate and consistent.
+
+- Add a feature to add dive certification information / images of dive cert cards to store in the app.
+
+- Calculate air consumed and document air consumption over time.
+
+- Add additional statistics and data analysis features to provide insights into the user's dive history. This could include visualizations of dive data, such as charts or graphs, to help users analyze their dive patterns and progress over time.
+
+- Allow users to export their dive logs to a CSV file for further analysis or sharing. This feature would enable users to extract their dive data and use it in other applications or share it with dive buddies or instructors.
+
+These future enhancements would further enhance the functionality and usability of the Scuba Dive Log program, providing users with a more comprehensive and customizable experience.
 
 ---
 ## Credits
