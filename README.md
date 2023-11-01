@@ -55,6 +55,7 @@ Link to the program: *[https://dive-log-9f66ea37cc55.herokuapp.com/](https://div
 ### Frequent Visitor Goals:
 * As a Frequent User, I want to review my previous dive logs.
 * As a Frequent User, I want to update my dive experiences and edit old logs.
+* As a Frequent User, I want to see updated features added over time.
 
 ---
 
@@ -82,28 +83,41 @@ Link to the program: *[https://dive-log-9f66ea37cc55.herokuapp.com/](https://div
 
     7. Quit;
 
-      ![loading Program](documentation/features/main_menu.png)
 
 - **When the user chooses "View Dive Logs"**
   - The program displays the dive logs.
 
+  ![loading Program](documentation/viewdivelogs.png)
+
 - **When the user chooses "Add Dive Log"**
   - The program shows a sub-menu with options to add various types of dive logs.
 
+    ![loading Program](documentation/adddivelog.png)
+
 - **When the user chooses "Delete Dive Log"**
-  - The program asks for the log's ID to delete it.
+  - The program pulls up an index of all logged dives and asks for the log's ID to delete it.
+
+    ![loading Program](documentation/deletedivelog.png)
 
 - **When the user chooses "Search Dive Logs"**
-  - The program asks for specific criteria to search for dive logs.
+  - The program asks for specific criteria to search for dive logs. Currently the search criteria has to be specific, it won't search for just keywords or partial logs. This feature will be added in future updates.
+
+    ![loading Program](documentation/searchdivelog.png)
 
 - **When the user chooses "Instructions"**
   - The program displays instructions on how to use it.
 
+    ![loading Program](documentation/instructions.png)
+
 - **When the user chooses "About"**
   - The program provides information about the program and the developer.
 
-- **When the user chooses "Quit"**
+    ![loading Program](documentation/about.png)
+
+- **When the user chooses "Exit"**
   - The program shows a goodbye message and stops.
+
+    ![loading Program](documentation/exit.png)
 
 ---
 
@@ -236,7 +250,7 @@ There are several future enhancements that can be made to improve the functional
 
 - Add the ability to edit existing dive logs. Currently, users can only add or delete dive logs. Allowing for edits would provide more flexibility in managing dive information.
 
-- Improve the search functionality to allow for more advanced search options. For example, users could search for dive logs by a specific date range or dive depth range, making it easier to find specific dives.
+- Improve the search functionality to allow for more advanced search options. For example, users could search for dive logs by a specific date range or dive depth range, and search for partial results or keywords, making it easier to find specific dives.
 
 - Implement more data validation to ensure that input values meet the required format and constraints. This would help prevent errors and ensure that the dive log data is accurate and consistent.
 

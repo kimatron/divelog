@@ -30,6 +30,10 @@ display_logo()
 
 
 def add_dive_log():
+    """
+    Function to prompt the user to enter
+    dive log information and add it to the dive log database
+    """
     # Prompt the user to enter dive log information
     dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
 
@@ -55,21 +59,26 @@ def add_dive_log():
 
     dive_buddy = input("Enter Dive Buddy Name:\n ")
     while not dive_buddy or dive_buddy.isdigit():
-        print(Fore.RED + "Error: Dive Buddy Name is required." + Style.RESET_ALL)
+        print(Fore.RED + "Error: "
+              "Dive Buddy Name is required." + Style.RESET_ALL)
         dive_buddy = input("Enter Dive Buddy Name:\n ")
 
     dive_site = input("Enter Dive Site Name:\n ")
     while not dive_site or dive_site.isdigit():
-        print(Fore.RED + "Error: Dive Site Name is required." + Style.RESET_ALL)
+        print(Fore.RED + "Error: Dive Site Name is required."
+              + Style.RESET_ALL)
         dive_site = input("Enter Dive Site Name:\n ")
 
     # Validate input for numeric fields
     dive_depth = None
     while dive_depth is None:
         dive_depth_input = input("Enter Dive Depth (in meters):\n ")
-        if not dive_depth_input or not dive_depth_input.isdigit() or int(dive_depth_input) <= 0:
+        if not dive_time_input or \
+            not dive_time_input.isdigit() or \
+                int(dive_depth_input) <= 0:
             print(
-                Fore.RED + "Error: Dive Depth is required and must be a positive integer." + Style.RESET_ALL)
+                Fore.RED + "Error: Dive Depth is required and "
+                "must be a positive integer." + Style.RESET_ALL)
             continue
 
         try:
@@ -80,25 +89,31 @@ def add_dive_log():
     dive_time = None
     while dive_time is None:
         dive_time_input = input("Enter Dive Time (in minutes):\n ")
-        if not dive_time_input or not dive_time_input.isdigit() or int(dive_depth_input) <= 0:
+        if not dive_time_input or \
+            not dive_time_input.isdigit() or \
+                int(dive_depth_input) <= 0:
             print(
-                Fore.RED + "Error: Dive Time is required and must be a positive integer." + Style.RESET_ALL)
+                Fore.RED + "Error: Dive Time is required and must "
+                "be a positive integer." + Style.RESET_ALL)
             continue
 
         try:
             dive_time = int(dive_time_input)
         except ValueError:
-            print(Fore.RED + "Invalid input. Please enter an integer." + Style.RESET_ALL)
+            print(Fore.RED + "Invalid input. Please enter an integer."
+                  + Style.RESET_ALL)
 
     starting_air = None
     while starting_air is None:
         starting_air_input = input("Enter Starting Air (in PSI):\n ")
         if not starting_air_input:
-            print(Fore.RED + "Error: Starting Air is required." + Style.RESET_ALL)
+            print(Fore.RED + "Error: Starting Air is required."
+                  + Style.RESET_ALL)
             continue
 
         if not starting_air_input.isnumeric():
-            print(Fore.RED + "Invalid input. Please enter an integer." + Style.RESET_ALL)
+            print(Fore.RED + "Invalid input. Please enter an integer."
+                  + Style.RESET_ALL)
             continue
 
         starting_air = int(starting_air_input)
@@ -107,16 +122,19 @@ def add_dive_log():
     while ending_air is None:
         ending_air_input = input("Enter Ending Air (in PSI):\n ")
         if not ending_air_input:
-            print(Fore.RED + "Error: Ending Air is required." + Style.RESET_ALL)
+            print(Fore.RED + "Error: Ending Air is required."
+                  + Style.RESET_ALL)
             continue
 
         if not ending_air_input.isnumeric():
-            print(Fore.RED + "Invalid input. Please enter an integer." + Style.RESET_ALL)
+            print(Fore.RED + "Invalid input. Please enter an integer."
+                  + Style.RESET_ALL)
             continue
 
         if int(starting_air_input) < int(ending_air_input):
             print(
-                Fore.RED + "Invalid input. Please enter a number less than starting air." + Style.RESET_ALL)
+                Fore.RED + "Invalid input. Please enter a number "
+                "less than starting air." + Style.RESET_ALL)
             continue
 
         ending_air = int(ending_air_input)
@@ -140,15 +158,21 @@ def add_dive_log():
     while True:
         add_another = input("Add another dive? (y/n):\n ")
         if add_another.lower() == "y":
-            add_dive_log()  # Call the add_dive_log() function again to add another dive log
+            # Call the add_dive_log() function again to add another dive log
+            add_dive_log()
             break
         elif add_another.lower() == "n":
             return
         else:
-            print(Fore.RED + "Invalid input. Please enter 'y' or 'n'." + Style.RESET_ALL)
+            print(Fore.RED + "Invalid input. Please enter 'y' or 'n'."
+                  + Style.RESET_ALL)
 
 
 def delete_dive_log():
+    """
+    Function to delete a dive log from the Google Sheets spreadsheet
+    """
+
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
 
@@ -158,18 +182,21 @@ def delete_dive_log():
 
         # Check if there are dive logs to delete
         if not dive_logs:
-            print(Fore.YELLOW + "No dive logs found to delete." + Style.RESET_ALL)
+            print(Fore.YELLOW + "No dive logs found to delete."
+                  + Style.RESET_ALL)
             return
 
         # Display the list of dive logs to the user
         print(Fore.MAGENTA + "------- Dive Logs -------" + Style.RESET_ALL)
         for index, log in enumerate(dive_logs, start=1):
-            print(
-                f"{index}. Dive Date: {log['Dive Date']}, Dive Buddy: {log['Dive Buddy Name']}, Dive Site: {log['Dive Site Name']}")
+            print(f"{index}. Dive Date: {log['Dive Date']},"
+                  f" Dive Buddy: {log['Dive Buddy Name']},"
+                  f" Dive Site: {log['Dive Site Name']}")
 
         # Prompt the user to select a dive log to delete
         dive_index = input(
-            "Enter the index of the dive log to delete (or 'm' to go back to the main menu):\n")
+            "Enter the index of the dive log to delete "
+            "(or 'm' to go back to the main menu):\n")
 
         if dive_index.lower() == 'm':
             return  # Go back to the main menu
@@ -182,7 +209,8 @@ def delete_dive_log():
 
             # Prompt the user for confirmation
             confirmation = input(Fore.YELLOW +
-                                 "Are you sure you want to delete this dive log? (y/n)\n" + Style.RESET_ALL)
+                                 "Are you sure you want to delete this"
+                                 "dive log? (y/n)\n" + Style.RESET_ALL)
 
             if confirmation.lower() != 'y':
                 print("Dive log deletion canceled.")
@@ -191,7 +219,8 @@ def delete_dive_log():
             # Add 1 to account for the header row
             spreadsheet.delete_rows(dive_index + 1)
 
-            print(Fore.GREEN + "Dive log deleted successfully!" + Style.RESET_ALL)
+            print(Fore.GREEN + "Dive log deleted successfully!"
+                  + Style.RESET_ALL)
         except ValueError:
             print(
                 Fore.RED + "Invalid input. "
@@ -203,14 +232,20 @@ def delete_dive_log():
             "Do you want to delete another dive log? (y/n)\n")
 
         if delete_another.lower() == 'y':
-            continue  # Continue the loop to prompt for another dive log deletion
+            continue
+        # Continue the loop to prompt for another dive log deletion
         elif delete_another.lower() == 'n':
             return  # Return from the function to go back to the main menu
 
-        print(Fore.RED + "Invalid input. Please enter 'y' or 'n'." + Style.RESET_ALL)
+        print(Fore.RED + "Invalid input. Please enter 'y' or 'n'."
+              + Style.RESET_ALL)
 
 
 def view_dive_logs():
+    """
+    Function to view all dive logs from the Google Sheets spreadsheet
+    """
+
     # Open the dive log database (Google Sheets spreadsheet)
     spreadsheet = SHEET.worksheet("DiveLog")
 
@@ -242,6 +277,9 @@ def view_dive_logs():
 
 
 def search_dive_logs():
+    """
+    Function to search dive logs based on user input query
+    """
     while True:
         # Get the search query from the user
         search_query = input(
@@ -268,7 +306,8 @@ def search_dive_logs():
 
         # Check if there are matching dive logs
         if not matching_logs:
-            print(Fore.GREEN + "No matching dive logs found." + Style.RESET_ALL)
+            print(Fore.GREEN + "No matching dive logs found."
+                  + Style.RESET_ALL)
             search_again = input(
                 "Would you like to search for another dive log? (Y/N):\n ")
             while search_again.lower() != "y" and search_again.lower() != "n":
@@ -311,6 +350,9 @@ def search_dive_logs():
 
 
 def display_about():
+    """
+    Function to display information about the dive log program and developer
+    """
     print(Style.BRIGHT + Fore.CYAN + """
     === About ===
     This program is a dive log application that
@@ -326,6 +368,9 @@ def display_about():
 
 
 def display_instructions():
+    """
+    Function to display instructions for using the dive log program
+    """
     print(Style.BRIGHT + Fore.BLUE+"""
 ======= Instructions =======
 
@@ -370,6 +415,9 @@ def display_instructions():
 
 
 def display_goodbye():
+    """
+    Function to quit program and display goodbye image and message
+    """
     print(f"{Style.BRIGHT}{Fore.BLUE}See you after the next dive!")
     print(f"""          )    O
                (   o . O
@@ -394,6 +442,9 @@ _/ -(-<    _)__|__(_    \\_)-<~
 
 
 def clean_up_terminal():
+    """
+    Defines function to clear the screen
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
@@ -442,7 +493,8 @@ while running:
         # Call the display_goodbye function
         display_goodbye()
     else:
-        print(Fore.RED + "Invalid option. Please try again." + Style.RESET_ALL)
+        print(Fore.RED + "Invalid option. Please try again."
+              + Style.RESET_ALL)
 
     if running:
         input("Press Enter to go back to the Main Menu.\n")
