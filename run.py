@@ -75,13 +75,13 @@ def add_dive_log():
     # Validate input for numeric fields
     dive_depth = None
     while dive_depth is None:
-        dive_depth_input = input("Enter Dive Depth (in meters):\n ")
-        if not dive_time_input or \
-            not dive_time_input.isdigit() or \
+        dive_depth_input = input("Enter Dive Depth (in meters):\n")
+        if not dive_depth_input or \
+                not dive_depth_input.isdigit() or \
                 int(dive_depth_input) <= 0:
             print(
-                Fore.RED + "Error: Dive Depth is required and "
-                "must be a positive integer." + Style.RESET_ALL)
+                Fore.RED + "Error: Dive Depth is required "
+                "and must be a positive integer." + Style.RESET_ALL)
             continue
 
         try:
@@ -93,7 +93,7 @@ def add_dive_log():
     while dive_time is None:
         dive_time_input = input("Enter Dive Time (in minutes):\n ")
         if not dive_time_input or \
-            not dive_time_input.isdigit() or \
+                not dive_time_input.isdigit() or \
                 int(dive_depth_input) <= 0:
             print(
                 Fore.RED + "Error: Dive Time is required and must "
