@@ -54,12 +54,12 @@ def add_dive_log():
                 dive_date = input("Enter Date of Dive (YYYY-MM-DD):\n ")
 
     dive_buddy = input("Enter Dive Buddy Name:\n ")
-    while not dive_buddy and int(dive_buddy):
+    while not dive_buddy or dive_buddy.isdigit():
         print(Fore.RED + "Error: Dive Buddy Name is required." + Style.RESET_ALL)
         dive_buddy = input("Enter Dive Buddy Name:\n ")
 
     dive_site = input("Enter Dive Site Name:\n ")
-    while not dive_site and int(dive_site):
+    while not dive_site or dive_site.isdigit():
         print(Fore.RED + "Error: Dive Site Name is required." + Style.RESET_ALL)
         dive_site = input("Enter Dive Site Name:\n ")
 
@@ -67,20 +67,22 @@ def add_dive_log():
     dive_depth = None
     while dive_depth is None:
         dive_depth_input = input("Enter Dive Depth (in meters):\n ")
-        if not dive_depth_input:
-            print(Fore.RED + "Error: Dive Depth is required." + Style.RESET_ALL)
+        if not dive_depth_input or not dive_depth_input.isdigit() or int(dive_depth_input) <= 0:
+            print(
+                Fore.RED + "Error: Dive Depth is required and must be a positive integer." + Style.RESET_ALL)
             continue
 
         try:
             dive_depth = int(dive_depth_input)
         except ValueError:
-            print(Fore.RED + "Invalid input. Please enter an integer." + Style.RESET_ALL)
+            print("Invalid input. Please enter an integer.")
 
     dive_time = None
     while dive_time is None:
         dive_time_input = input("Enter Dive Time (in minutes):\n ")
-        if not dive_time_input:
-            print(Fore.RED + "Error: Dive Time is required." + Style.RESET_ALL)
+        if not dive_time_input or not dive_time_input.isdigit() or int(dive_depth_input) <= 0:
+            print(
+                Fore.RED + "Error: Dive Time is required and must be a positive integer." + Style.RESET_ALL)
             continue
 
         try:
@@ -168,12 +170,16 @@ def delete_dive_log():
                   f" Dive Site: {log['Dive Site Name']}")
 
         # Prompt the user to select a dive log to delete
-        dive_index = input("Enter the index of the dive log to delete (or "
-                           "'m' to go back to the main menu):\n ")
+            dive_index = input(
+                f"""
+Enter the index of the dive log to delete (or 'm' to go back to the main menu):
+
+"""
+            )
 
         if dive_index == 'q':
             return
-        elif dive_index.lower() == 'm':
+        if dive_index.lower() == 'm':
             return  # Go back to the main menu
 
         try:
@@ -446,7 +452,7 @@ while running:
         # Call the display_goodbye function
         display_goodbye()
     else:
-        print("Invalid option. Please try again.")
+        print(Fore.RED + "Invalid option. Please try again." + Style.RESET_ALL)
 
     if running:
         input("Press Enter to go back to the Main Menu.\n")
