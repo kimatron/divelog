@@ -335,10 +335,12 @@ def display_instructions():
    - Use this option to add a new dive log to the database.
    - You will be prompted to enter information such as the dive date,
    dive buddy name, and dive site name.
-   Dive time is to be entered in minutes and requires an integer input;
-   Dive depth is to be entered in meters and requires an integer input;
-   Starting and Ending air is to be entered in PSI
-   and requires an integer input.
+   - Dive time is to be entered in minutes and requires an integer input;
+   - Dive depth is to be entered in meters and requires an integer input;
+   - Starting and Ending air is to be entered in PSI
+    and requires an integer input.
+   - Ending Air value must be lower than Starting Air.
+   - All fields are required to complete the log.
 
 
 3. Delete Dive Log:
