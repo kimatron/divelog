@@ -93,7 +93,8 @@ def add_dive_log():
 
         # Validate the input data
         if not (dive_date and dive_buddy and dive_site):
-            print(Fore.RED + "Error: All fields are required." + Style.RESET_ALL)
+            print(Fore.RED + "Error:"
+                  " All fields are required." + Style.RESET_ALL)
             continue
 
         # Open the dive log database (Google Sheets spreadsheet)
@@ -127,7 +128,8 @@ def delete_dive_log():
     while True:
         # Check if there are dive logs to delete
         if not dive_logs:
-            print(Fore.YELLOW + "No dive logs found to delete." + Style.RESET_ALL)
+            print(Fore.YELLOW + "No dive logs"
+                  " found to delete." + Style.RESET_ALL)
             return
 
         # Display the list of dive logs to the user
@@ -139,8 +141,8 @@ def delete_dive_log():
                   f" Dive Site: {log['Dive Site Name']}")
 
         # Prompt the user to select a dive log to delete
-        dive_index = input("Enter the index of the dive log to delete "
-                           "(or 'q' to quit, 'm' to go back to the main menu):\n ")
+        dive_index = input("Enter the index of the dive log to delete (or "
+                           "'q' to quit, 'm' to go back to the main menu):\n ")
 
         if dive_index == 'q':
             return
@@ -164,7 +166,8 @@ def delete_dive_log():
             # Add 1 to account for the header row
             spreadsheet.delete_rows(dive_index + 1)
 
-            print(Fore.GREEN + "Dive log deleted successfully!" + Style.RESET_ALL)
+            print(Fore.GREEN + "Dive log deleted "
+                  "successfully!" + Style.RESET_ALL)
 
             # Update the dive_logs list after deleting a log
             dive_logs = copy.copy(spreadsheet.get_all_records())
@@ -176,7 +179,8 @@ def delete_dive_log():
                 return
         except ValueError:
             print(
-                Fore.RED + "Invalid input. Please enter a valid index." + Style.RESET_ALL)
+                Fore.RED + "Invalid input. "
+                "Please enter a valid index." + Style.RESET_ALL)
             delete_another = input(
                 "Do you want to delete another dive log? (y/n)\n")
             if delete_another.lower() != 'y':
@@ -210,14 +214,16 @@ def view_dive_logs():
 
         # Print "Please scroll to see all logs" message at the end
         if index == len(dive_logs):
-            print(Fore.CYAN + "Please scroll to see all logs" + Style.RESET_ALL)
+            print(Fore.CYAN + "Please scroll "
+                  "to see all logs" + Style.RESET_ALL)
 
 
 def search_dive_logs():
     while True:
         # Get the search query from the user
         search_query = input(
-            "Enter a specific search query (Dive Site Name, Dive Buddy, Dive Date...):\n ")
+            "Enter a specific search query "
+            "(Dive Site Name, Dive Buddy, Dive Date...):\n ")
 
         # Open the dive log database (Google Sheets spreadsheet)
         spreadsheet = SHEET.worksheet("DiveLog")
@@ -231,7 +237,9 @@ def search_dive_logs():
         # Iterate over each dive log
         for log in dive_logs:
             # Check if any field in the log contains the search query
-            if search_query.lower() in [str(value).lower() for value in log.values()]:
+            if search_query.lower() in [
+                str(value).lower() for value in log.values()
+            ]:
                 # Add the matching log to the list
                 matching_logs.append(log)
 
@@ -265,7 +273,8 @@ def search_dive_logs():
 
             # Print "Please scroll to see all logs" message at the end
             if index == len(matching_logs):
-                print(Fore.CYAN + "Please scroll to see all logs" + Style.RESET_ALL)
+                print(Fore.CYAN + "Please scroll "
+                      "to see all logs" + Style.RESET_ALL)
 
         search_again = input(
             "Would you like to search for another dive log? (Y/N): ")
