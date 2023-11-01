@@ -1,59 +1,47 @@
 # Scuba Dive Log
 
+
 ![Scuba Dive Log](Documentation/scubadiveloggrab11.png)
 
 *The link to [Scuba Dive Log](https://dive-log-9f66ea37cc55.herokuapp.com/)*
 
-Scuba Dive Log is a Python terminal project whose primary purpose is to log users scuba dive information so that they can keep track of all their dives. It will store useful information that divers like to keep track of, such as:
-* Dive Date
-* Dive Buddy
-* Dive Site Name
-* Dive Depth (in meters)
-* Dive Time (in minutes)
-* Air Consumed (in PSI or bar)
+Scuba Dive Log is a Python terminal project designed to log users' scuba dive information. It allows divers to keep track of all their dives by storing useful information such as dive date, dive buddy, dive site name, dive depth (in meters), dive time (in minutes), and air consumed (in PSI or bar).
 
 
 ---
 
-## How to use program:
+## How to use the program:
 
-  1. Click this *[link](https://dive-log-9f66ea37cc55.herokuapp.com/)* or copy this text: `https://dive-log-9f66ea37cc55.herokuapp.com/` and paste it in your browser's address bar.
-  1. As soon as the page is loaded, click 'RUN PROGRAM'.
-  1. Introduce yourself to the program.
-  1. Read the Instructions
-  1.
-  1. 
-  1. When you are done dreaming of dives of yore, choose "Quit" and **send** the link to this program to your friends!
+1. Click on this *[link](https://dive-log-9f66ea37cc55.herokuapp.com/)* or copy and paste this text: `https://dive-log-9f66ea37cc55.herokuapp.com/` into your browser's address bar.
+2. Once the page is loaded, click on 'RUN PROGRAM'.
+3. Follow the instructions provided by the program.
+4. Choose from various options available, such as viewing dive logs, adding dive logs, deleting dive logs, searching dive logs, reading instructions, learning about the program, or quitting.
+5. When you are done, choose "Quit" and **send** the link to this program to your friends!
 
-  Link to the program: *https://dive-log-9f66ea37cc55.herokuapp.com/*
+Link to the program: *[https://dive-log-9f66ea37cc55.herokuapp.com/](https://dive-log-9f66ea37cc55.herokuapp.com/)*
 
 ---
 ## User Stories
 ### First Time Visitor Goals:
 
-* As a First Time Visitor, I want to quickly understand the program's primary purpose so that I can learn more about this program.
-* As a First Time Visitor, I want to navigate through the program easily so that I can find the content.
-* As a First Time Visitor, I want to be able to add and store my dive data.
-* As a First Time Visitor, I want to see information about the developer and the program.
+* As a First Time Visitor, I want to quickly understand the purpose of the program so that I can learn more about it.
+* As a First Time Visitor, I want to easily navigate through the program to find the content I need.
+* As a First Time Visitor, I want to add and store my dive data.
+* As a First Time Visitor, I want to find information about the developer and the program.
 
 ### Frequent Visitor Goals:
-* As a Frequent User, I want to review my previous dive logs
-* As a Frequent User, I want to update my new dive experiences and edit old ones.
+* As a Frequent User, I want to review my previous dive logs.
+* As a Frequent User, I want to update my dive experiences and edit old logs.
 
 ---
 
 ## Features
   
-  - **When the program is loaded**
-
-  The user can see a logo and a main menu which will let the user know what the
-  program is for:
+- **When the program is loaded**
+  - Users will see a logo and a main menu that explains the purpose of the program:
   
-  ![loading Program](documentation/features/welcome_message_name.png)
+  ![loading Program](documentation/scubadiveloggrab11.png)
 
-  - **When the user types a name.**
-
-  - Sends personal greetings and short instruction on the next step;
 
   - Shows the terminal menu with seven options:
 
@@ -73,56 +61,48 @@ Scuba Dive Log is a Python terminal project whose primary purpose is to log user
 
       ![loading Program](documentation/features/main_menu.png)
 
-  The user can manipulate the terminal menu with the arrow keys to choose an option and the enter key to confirm the choice.
+- **When the user chooses "View Dive Logs"**
+  - The program displays the dive logs.
 
-  - **When the user chose "View Dive Logs"**
+- **When the user chooses "Add Dive Log"**
+  - The program shows a sub-menu with options to add various types of dive logs.
 
-  
+- **When the user chooses "Delete Dive Log"**
+  - The program asks for the log's ID to delete it.
 
-  ![loading Program](documentation/features/rules.png)
+- **When the user chooses "Search Dive Logs"**
+  - The program asks for specific criteria to search for dive logs.
 
-  - **When the user chose "Add Dive Log"**
+- **When the user chooses "Instructions"**
+  - The program displays instructions on how to use it.
 
-  The program will show the sub-menu with the following options to choose from:
+- **When the user chooses "About"**
+  - The program provides information about the program and the developer.
 
-  
+- **When the user chooses "Quit"**
+  - The program shows a goodbye message and stops.
 
-  ![loading Program](documentation/features/sub_menu.png)
-
-  Here the user can choose which story is preferable to play or go back to the main menu.
-
-- **When the user chose "Delete Dive Log**
-
-  
-
-  ![loading Program](documentation/features/typing_words.png)
-
-- **When the user chose "Search Dive Logs**
-
-
-  ![loading Program](documentation/features/after_input.png)
-  ![loading Program](documentation/features/story.png)
-
- - **When the user chose "Instructions**
-
- - **When the user chose "About**
-
-  - **When the user chose "Quit"**
-
-
-  The user will see a goodbye message, and the program will be stopped.
-
-  ![loading Program](documentation/features/goodbye_message.png)
+---
 
 ---
 
 ## Flowchart
 
-The flowchart represents the logic of the application:
+The flowchart below represents the logic of the Scuba Dive Log application:
+
 ![FlowChart](documentation/firstflowchart.png)
-  ![FlowChart](documentation/flowchart_divelog.png)
+![FlowChart](documentation/lucidflowchart.png)
 
+## Database Structure
 
+The Scuba Dive Log application uses Google Sheets to store and retrieve data. The application has one worksheet named "DiveLog" that stores all the data.
+
+![database](documentation/googlesheetsdivelog.png)
+
+The worksheet consists of seven columns: Dive Date, Dive Buddy, Dive Site Name, Dive Depth, Dive Time, Starting Air, and Ending Air. This structure allows the program to store and retrieve dive log data from the Google Sheets spreadsheet.
+  
+
+The ID column value is assigned automatically when a new divelog is added.
 
 ---
 ## Technologies Used
@@ -140,8 +120,11 @@ The flowchart represents the logic of the application:
 
 ##### Standard library imports:
 
-- [random](https://docs.python.org/3/library/random.html) was used to implement pseudo-random number generation.
-- [os](https://docs.python.org/3/library/os.html ) was used to clear the terminal before running the program.
+- [datetime](https://docs.python.org/3/library/datetime.html) The datetime module supplies classes for manipulating dates and times.
+- [os](https://docs.python.org/3/library/os.html) was used to clear the terminal before running the program.
+
+- [copy](https://docs.python.org/3/library/copy.html) The copy module is used in the delete_dive_log() function. The copy.copy() function is used to create a shallow copy of the dive log list obtained from the Google Sheets spreadsheet. This allows the function to update the list of dive logs after deleting a log without modifying the original list.
+
 ##### Third-party imports:
 
 - [NLTK Package](https://www.nltk.org/) was used in order to be able to work with pattern package.
@@ -154,88 +137,13 @@ The flowchart represents the logic of the application:
 - [VSCode](https://code.visualstudio.com/) was used as the main tool to write and edit code.
 - [Git](https://git-scm.com/) was used for the version control of the website.
 - [GitHub](https://github.com/) was used to host the code of the website.
-- [GIMP](https://www.gimp.org/) was used to make and resize images for the README file.
-- [Draw.io](https://www.lucidchart.com/) was used to make a flowchart for the README file.
-- [render.com](https://render.com/) was used to deploy the project.
+- [SnippingTool](https://snippingtoolfree.com/) was used to capture images for the README file.
+- [Lucid Flow Chart](https://www.lucidchart.com/) was used to make a flowchart for the README file.
+- [heroku.com](https://heroku.com/) was used to deploy the project.
 
 
 ---
 
-## Bugs
-
-+ **Solved bugs**
-
-
-1. The function ```choosing_article(word)``` did not give the correct article if the noun was uncountable.
-
-    - *Solutions:* rewrote function with using args; rather than checking only the beginning of the word, it checks all arguments and presents the correct  article
-
-     ```python
-    def choosing_article(*words):
-        """
-        Checks which article to use before the word and place the article before it
-        """
-        # Checks if the last word is countable.
-        #If it is uncountable, returns all words
-        if words[-1] in uncountable_nouns:
-            return ' '.join(words)
-        else:
-            # Checks if the word starts with a vowel, adds 'an' before the word
-            if words[0][0] in dictionary_letters['vowels']:
-                return 'an ' + ' '.join(words)
-            # Otherwise, adds 'a' before the word
-            else: 
-                return 'a ' + ' '.join(words)
-      ```
-
-1. Conjugate function did not work due to the RunTimeError raised by Python.
-
-    - *Solutions:* add function which runs the function at first raising this error and then passes this error.
-
-     ```python
-    def run_the_time_error():
-        """
-        Prevent "RuntimeError: generator raised StopIteration"
-        The package has raised StopIteration that was missed in python earlier versions.
-        Thus, it had worked before Python version 3.7 was introduced.
-        Since the package has not been updated since August 2018, it raises the error and stops the app.
-        "PEP 479 is enabled for all code in Python >= 3.7, meaning that StopIteration exceptions raised
-        directly or indirectly in coroutines and generators are transformed
-        into RuntimeError exceptions."
-        Link to this change:
-        https://docs.python.org/3/whatsnew/3.7.html#changes-in-python-behavior
-        """
-        try:
-            conjugate(verb = '', tense = PAST)
-        except RuntimeError:
-            pass
-
-    run_the_time_error()
-    ```
-
-
-1. Pattern package could not spot the uncountable nouns, and as a result, pluralized uncountable nouns automatically.
-
-    - *Solutions:* created list of uncountable nouns and a function which checks whether the word is countable or uncountable at first. Then if it is countable, pluralize this word.
-
-    ```python
-    def plural_noun(noun):
-    """
-    Checks whether the noun is countable or not and transform into plural if it's countable
-    This function is needed to prevent the pluralization of uncountable nouns bt pattern package.
-    """
-    # Checks if the noun is uncountable; if it is, returns the nouns
-    if the noun in uncountable_nouns:
-    if noun in uncountable_nouns:
-        return noun
-    # Otherwise, pluralize noun with the patterns package
-    return pluralize(noun)
-    ```
-
-
-+ **Unsolved bugs**
-
-    - 
 
 ---
 ## Testing
@@ -252,120 +160,54 @@ It was helpful to edit with then copy the fixed code back into VS Code.
 After a ropey start with many errors that gave me a fright initially, I got it down to no errors without too much hardship.
 
 ![pep8_validation](documentation/linterpass.png)
-## Deployment
+#   Deployment
 
-- The program was deployed to [Heroku](https://dashboard.heroku.com).
-- The program can be reached by the [link](https://dive-log-9f66ea37cc55.herokuapp.com/)
-### To deploy the project as an application that can be **run locally**:
+## Git and GitHub
 
-*Note:*
-  1. This project requires you to have Python installed on your local PC:
-  - `sudo apt install python3`
+1. [Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template) was used to create GitHub public 
+repository [divelog](https://github.com/kimatron/divelog). In template repository clicked on "use this template" --> "create new repository", 
+choose repository name and clicked on the green button "Create repository from template".
 
-  1. You will also need pip installed to allow the installation of modules the application uses.
-  - `sudo apt install python3-pip`
+2. Clone repository to your local machine using GitHub.
+3. Use the following commands to add, commit and push changes:
+    - git add .
+    - git commit -m "Do something"
+    - git push
+    Also:
+    - clear (to clear the terminal)
+    - git status (to know if your app is up to date and your working tree is clean)
 
-Create a local copy of the GitHub repository by following one of the two processes below:
+4. Ensure that all libraries and packages are listed in requirements.txt file.
 
-- Download ZIP file:
-  1. Go to the [GitHub Repo page](https://github.com/IuliiaKonovalova/madlib_with_python).
-  1. Click the Code button and download the ZIP file containing the project.
-  1. Extract the ZIP file to a location on your PC.
+5. When program is ready for further deployment, visit heroku.com website to deploy on heroku.
 
-- Clone the repository:
-  1. Open a folder on your computer with the terminal.
-  1. Run the following command
-  - `git clone https://github.com/IuliiaKonovalova/madlib_with_python.git`
+## Deployment to Heroku
 
-- Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+1. Navigate to [https://heroku.com/](https://heroku.com/) and open dashboard. Then  click the button "New" and select "Create new app" button.
 
-  [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/IuliiaKonovalova/madlib_with_python)
+2. Enter app name, chose region, and click on "Create app" button
 
-  1. Install Python module dependencies:
-     
-      1. Navigate to the folder madlib_with_python by executing the command:
-      - `cd madlib_with_python`
-      1. Run the command pip install -r requirements.txt
-        - `pip3 install -r requirements.txt`
-      1. *Note:* If you are located in China ![China](https://www.countryflags.io/cn/flat/32.png) or any other country with restricted internet access, you may need to add the following code in order to be able to use the nltk package.
-      
-       - For example:
+3. The next step was to go to "Deploy" tab and then to "Deployment method" section to authorize and connect your GitHub account.
 
-        ```python
-        nltk.set_proxy('127.0.0.1:41091')
-        ```
-      - To set the proxy, you need to open setting in preferred VPN, find Server address and HTTP/HTTPS Proxy Port joining them by colons as it is shown in the example above:
-      ![Settings VPN](documentation/deployment/settings_vpn.png)
+4. Upon succesfull connection select main branch from repository.
 
-      
+5. Then go to "Settings" tab.
 
+6. Next go to "Buildpacks" section. Add python and nodejs buildpacks. Order here is very important.
 
-### To deploy the project to Heroku so it can be run as a remote web application:
-- Clone the repository:
-  1. Open a folder on your computer with the terminal.
-  1. Run the following command
-  - `git clone https://github.com/kimatron/divelog.git`
+7. Next go to "Config Vars" section and add KEY "CREDS" - that maches your token name defined in python constant
+ in [api/google_sheets_api.py] with value of your credentials token (copy all and paste).
 
-  1. Create your own GitHub repository to host the code.
-  1. Run the command `git remote set-url origin <Your GitHub Repo Path>` to set the remote repository location to your repository.
+8. Add key "PORT" with value "8080" and save changes.
 
-  1. Push the files to your repository with the following command:
-  `git push`
-  1. Create a Heroku account if you don't already have one here [Heroku](https://dashboard.heroku.com).
-  1. Create a new Heroku application on the following page here [New Heroku App](https://dashboard.heroku.com/apps):
+6. Go back to "Deploy" tab (I and decided to use automatic deploys), however manual mode is also available to deploy chosen branch. 
 
-      - ![New Heroku App](documentation/deployment/new_heroku_app.png)
-
-  1. Go to the Deploy tab:
-
-      - ![Deploy Tab](documentation/deployment/deploy_tab.png)
-
-      - ![Deployment Method](documentation/deployment/deployment_method.png)
-
-  1. Link your GitHub account and connect the application to the repository you created.
-
-      - ![Link GitHub account](documentation/deployment/link_to_github.png)
-
-  1. Go to the Settings tab:
-  
-      - ![Settings Tab](documentation/deployment/settings_tab.png)
-
-  1. Click "Add buildpack":
-
-      - ![Add Buildpack](documentation/deployment/add_buildpack.png)
-
-  1. Add the Python and Node.js buildpacks in the following order:
-
-      - ![Add Python and Node.js](documentation/deployment/add_python_and_node_js.png)
-
-  1. Click "Reveal Config Vars."
-
-      - ![Reveal Config Vars](documentation/deployment/reveal_config_vars.png)
-
-  1. Add 1 new Config Vars:
-      - Key: PORT Value: 8000
-      - *This Config was provided by [CODE INSTITUTE](https://codeinstitute.net/)*.
-
-  1. Go back to the Deploy tab:
-
-      - ![Deploy Tab](documentation/deployment/deploy_tab.png)
-
-  1. Click "Deploy Branch":
-
-      - ![Deploy Branch](documentation/deployment/deploy_branch.png)
-
-      - Wait for the completion of the deployment.
-
-      - ![Deploying Branch](documentation/deployment/deploying_branch.png)
-
-  1. Click "Open app" to launch the application inside a web page.
-
-      - ![View Button](documentation/deployment/view_app.png)
+7. The link to my deployed app was shown on screen: https://pp3-home-library.herokuapp.com/
 
 
 ---
 ## Credits
-- Used [Code Institute](https://github.com/Code-Institute-Org/ci-full-template) template to start off project.
+- Used [Code Institute](https://github.com/Code-Institute-Org/python-essentials-template) template to start off project.
 - Sourced some style code ideas for adjusting photo size and layout from various sources online:
 [w3schools](www.w3schools.com),
 [Stackoverflow](Stackoverflow.com),
