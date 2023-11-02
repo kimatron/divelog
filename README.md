@@ -127,7 +127,7 @@ Link to the program: *[https://dive-log-9f66ea37cc55.herokuapp.com/](https://div
 
 The flowchart below represents the logic progression of the Scuba Dive Log application:
 
-![FlowChart](documentation/firstflowchart.png)
+
 ![FlowChart](documentation/lucidflowchart.png)
 
 ## Database Structure
@@ -165,6 +165,7 @@ The ID column value is assigned automatically when a new divelog is added.
 ##### Third-party imports:
 
 - [Colorama](https://pypi.org/project/colorama/) was used to add colors and styles to the project.
+- [gspread] Gspread was used to store, retrieve, and manipulate spreadsheets.
 
 #### Other tools:
 
@@ -275,8 +276,9 @@ These future enhancements would further enhance the functionality and usability 
 - Used [TextKool](https://textkool.com/) to create Dive Log logo with Ascii generator.
 - Read through README.md and TESTING.md of older projects to get template base of what information I needed to fill in for my documentation.
 - Used [Asciiart](https://www.asciiart.eu/sports-and-outdoors/scuba) for the ascii scuba diver art in the goodbye message.
+- Used gspread google sheets to store and manipulate data. Gspread is a free web-based platform that allows users to store, retrieve, and manipulate spreadsheets.
 
 ### Acknowledgments
 - Thanks to [Viola](https://github.com/violaberg) for keeping me sane and providing advice and motivation at silly o clock in the morning when my eyes weren't working anymore and joining me for ANOTHER halloween hackathon in the middle of the project, just to add more stress to the mix :)
-- And thanks to my mentor [Juliia](https://github.com/IuliiaKonovalova) for putting up with my "working best under time pressure" method of working and providing helpful advice and figuring out my bugs with her keen eye :)  
+- And thanks to my mentor [Juliia](https://github.com/IuliiaKonovalova) for putting up with my "working best under pressure" method of working and providing helpful advice and figuring out my bugs with her keen eye :)  
  

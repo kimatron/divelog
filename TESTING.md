@@ -12,11 +12,11 @@ After pulling my hair out for about 28minutes I found the simple issue was I was
 
 Moving the 2nd and 3rd input below the date validation fixed the problem
 
-![Date Validation Bug](Documentation/bugdatevalidationfix.png)
+![Date Validation Bug](documentation/bugdatevalidationfix.png)
 
 - When trying to quit the program I encountered my first real life neverending infinity bug:
 
-![Exit Infinity Bug](Documentation/bugexitloop.gif)
+![Exit Infinity Bug](documentation/bugexitloop.gif)
 
 Adding a simple exit() call fixed the problem.
 
@@ -31,7 +31,7 @@ Adding a simple exit() call fixed the problem.
 
 - The Yes/No query input was accepting any key responses, then when I tried to fix it the N response was not diverting back to the main menu
 
-![y/n Bug](documentation/yesnoany.png)
+![y/n Bug](documentation/bugyesnoany.png)
 ![y/n Bug initial fix](documentation/bugyesnofix.png)
 ![y/n Bug fix](documentation/bugyesnonewfix.png)
 
@@ -42,6 +42,8 @@ Adding a simple exit() call fixed the problem.
 * To fix it I added checks on each individual input.
 
 ![All fields required Bug](documentation/bugsearchrequiredfix.png)
+
+- Changing names of files and folders in VScode did not take effect in GitHub, thus throwing errors in links to images in README and TESTING. I deleted from source in GitHub and uploaded again. I think the problem occurs when I change the name after pushing the added files, but I can't find a definitive answer as to why, but it is pretty frustrating!
 
 ## (almost) Unfixed bugs
 
