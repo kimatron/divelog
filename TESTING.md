@@ -43,7 +43,7 @@ Adding a simple exit() call fixed the problem.
 
 ![All fields required Bug](documentation/bugsearchrequiredfix.png)
 
-## Unfixed bugs
+## (almost) Unfixed bugs
 
 - When deleting a dive log the program gives an option to delete another index or go back to the main menu.
 It gives the correct error of invalid input for the first incorrect input, but then allows to go back to the main menu.
@@ -51,7 +51,17 @@ I don't think this is a big problem, but will fix it when I get a chance.
 
 ![Double input error bug](documentation/unfixedbug.png)
 
+
 - In the delete log function, when an invalid option is entered twice in a row, the invalid error sign shows briefly and automatically displays all dive logs again. There is something wrong with the loop, that I will fix as soon as I get the chance. The function still works, it's just not as user friendly as I want it to be.
+
+LAST MINUTE FIX!
+Added an extra while True loop (line 50) to ensure that the program keeps prompting the user until a valid input ('y' or 'n') is provided for the question "Do you want to delete another dive log?"
+
+Within the new while True loop, added an if statement (line 51) to check if the input is 'n'. If it is, the function returns to the main menu, effectively ending the execution of the delete_dive_log() function.
+
+In the same if statement, added an elif statement (line 53) to check if the input is 'y'. If it is, the break statement is executed, which exits the inner while loop and continues with the execution of the outer while loop.
+
+Added an else statement (line 56) to handle invalid inputs for the question "Do you want to delete another dive log?" If the input is neither 'y' nor 'n', the program prints an error message and continues to prompt the user until a valid input is provided.
 
 ## Mystery Bug
 Twice when I clicked on my deployed link the deployed screen did not load properly. No code had been edited or changed for it to cause an error, by redeploying it on heroku it displayed correctly again. Hopefully it does not do this again when I am not working on it daily to notice.
